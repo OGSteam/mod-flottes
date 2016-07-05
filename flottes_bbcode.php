@@ -27,7 +27,7 @@ buttons_bar($pub_subaction);
 
 global $nbj;
 
-$nb_planete = find_nb_planete_user();
+$nb_planete = find_nb_planete_user($user_data["user_id"]);
 
 // total points
 		$total=0;
@@ -44,7 +44,7 @@ $nb_planete = find_nb_planete_user();
 		$request .= " as tot FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id'];
 		
 		if ($result = $db->sql_query($request)){
-			$total = mysql_fetch_row($result);
+			$total = $db->sql_fetch_row($result);
 			if ($total[0]==''){$total=0;}
 			else {$total=$total[0];}}
 
@@ -61,7 +61,7 @@ $nb_planete = find_nb_planete_user();
 
 /////////////////////////////////////////////////
 if($result = $db->sql_query($request)) {
-	while($ligne = mysql_fetch_row($result)) {
+	while($ligne = $db->sql_fetch_row($result)) {
 		$PT = $ligne[0]; 	
 		$GT = $ligne[1]; 
 		$CLE = $ligne[2];
@@ -78,10 +78,10 @@ if($result = $db->sql_query($request)) {
 		$sat = $ligne[13];
 	}
 	
-	// On initialise tout à 0
+	// On initialise tout Ã  0
 	$mic = $mip = $pb = $gb = $lm = $lle = $llo = $cg = $ai = $lp = 0;
 	
-	// Boucle pour les planètes
+	// Boucle pour les planÃ¨tes
 	for ($i = 101 ; $i<=($nb_planete+100); $i++) {
 		$mic += $user_defence[$i][$mic_lang];
 		$mip += $user_defence[$i][$mip_lang];
@@ -117,14 +117,14 @@ if($result = $db->sql_query($request)) {
 
 /////// si le nom du joueur est pas null alors on va chercher ses statistiques flottes	
 	if ($joueur!=''){
-////// dernière date de Stat
+////// derniÃ¨re date de Stat
 		$out="";
 		$dated=1;
 		$fp=0;
 		$fr=0;
 		$query = "SELECT max(datadate) FROM ".TABLE_RANK_PLAYER_FLEET." WHERE player='".$joueur."'";
 		if ($result = $db->sql_query($query)){
-			if ( $val = mysql_fetch_row($result) ){
+			if ( $val = $db->sql_fetch_row($result) ){
 				$dated=$val[0];
 			}
 			else {
@@ -145,7 +145,7 @@ if($result = $db->sql_query($request)) {
 		if (isset($dated)){
 			$query  = "SELECT rank, points  FROM ".TABLE_RANK_PLAYER_FLEET." WHERE datadate=".$dated." AND player='".$joueur."'";
 			if ($result = $db->sql_query($query)){	
-				if ( $val = mysql_fetch_row($result) ){
+				if ( $val = $db->sql_fetch_row($result) ){
 					$fr = $val[0];  // le classement flotte
 //					$fp = $val[1];   // les points flotte
 				}
@@ -177,15 +177,15 @@ if($result = $db->sql_query($request)) {
 		
 
  		$header = '[center][color='.$CB1.'][b][i][u]Flotte:[/color][/u][/i][/b]';
-		$footer = '[color='.$CB3.']Statut de la flotte de [/color][color='.$CB2.']'.$joueur.'[/color][color='.$CB3.'] réalisé par le Mod Flottes d\''.$GA.' le '.$date.'[/color][/i][/center]';
+		$footer = '[color='.$CB3.']Statut de la flotte de [/color][color='.$CB2.']'.$joueur.'[/color][color='.$CB3.'] rÃ©alisÃ© par le Mod Flottes d\''.$GA.' le '.$date.'[/color][/i][/center]';
 		
 		$conv  = $header."\n";
 		$conv .= "\n";
 		if ($fr!=0){
-		$conv .= '[i][color='.$CB1.']Classement par Vaisseaux: [/color][color='.$CB2.']'.$fr.' [/color][color='.$CB1.']ème au [/color][color='.$CB2.']'.$lastmodified.' [/color][color='.$CB1.']heure[/color][color='.$CB3.'] [/color][/i]'."\n";
+		$conv .= '[i][color='.$CB1.']Classement par Vaisseaux: [/color][color='.$CB2.']'.$fr.' [/color][color='.$CB1.']Ã¨me au [/color][color='.$CB2.']'.$lastmodified.' [/color][color='.$CB1.']heure[/color][color='.$CB3.'] [/color][/i]'."\n";
 		$conv .= "\n";}
 		else {
-		$conv .= '[i][color='.$CB1.']Joueur non classé ou classement par Vaisseaux inexistant[/color][color='.$CB3.'] [/color][/i]'."\n";
+		$conv .= '[i][color='.$CB1.']Joueur non classÃ© ou classement par Vaisseaux inexistant[/color][color='.$CB3.'] [/color][/i]'."\n";
 		$conv .= "\n";}
 		$conv .= '[b][color='.$CB4.']Vaisseaux de Guerre[/color][/b]'."\n";
 		$conv .= "\n";
@@ -220,7 +220,7 @@ if($result = $db->sql_query($request)) {
 		$conv .= '[i][color='.$CB2.']'.$mic.'[/color] [color='.$CB5.']'.$LANG["ogame_AntiBallisticMissiles"].'[/color]'."\n";
 		$conv .= '[color='.$CB2.']'.$mip.'[/color] [color='.$CB5.']'.$LANG["ogame_InterplanetaryMissiles"].'[/color][/i]'."\n";
 		$conv .= "\n";
-		$conv .= '[b][color='.$CB4.']Défenses[/color][/b]'."\n";
+		$conv .= '[b][color='.$CB4.']DÃ©fenses[/color][/b]'."\n";
 		$conv .= "\n";
 		$conv .= '[i][color='.$CB2.']'.$lm.'[/color] [color='.$CB5.']'.$LANG["ogame_RocketLauncher"].'[/color]'."\n";
 		$conv .= '[color='.$CB2.']'.$lle.'[/color] [color='.$CB5.']'.$LANG["ogame_LightLaser"].'[/color]'."\n";

@@ -11,7 +11,7 @@ if (!defined('IN_SPYOGAME')) {
 	die("Hacking attempt");
 }
 
-//vérification de la version pour compatibilité 
+//vÃ©rification de la version pour compatibilitÃ© 
 	//$num_of_galaxies = 50;
 	//$num_of_systems = 100;
 if (!isset($num_of_galaxies) || !isset($num_of_systems)) { 
@@ -85,7 +85,7 @@ $graph->setAntiAliasing(TRUE);
 
 
 $graph->setBackgroundColor(new Color(52, 69, 102, 0));
-$graph->title->set('Répartition dans l\'univers');
+$graph->title->set('RÃ©partition dans l\'univers');
 $graph->title->move(0,-5);
 $graph->title->setColor(new Color(255, 255, 255, 0));
 

@@ -46,7 +46,7 @@ function mod_flottes_get_ship($ship, $add=false) {
 			continue;
 		}
 
-		// On enlève le séparateur décimal
+		// On enlÃ¨ve le sÃ©parateur dÃ©cimal
 		$line = str_replace('.', '', $line);
 
 		if($OK && preg_match("/^([\D\s]+)\s+(\d+)/", $line, $arr)) {
@@ -70,7 +70,7 @@ function mod_flottes_get_ship($ship, $add=false) {
 			$request = "DELETE FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id']." AND planet_id=".$_POST['planet_id'];
 
 			if(!($result = $db->sql_query($request))) {
-				$out = "Erreur de base de donnée";
+				$out = "Erreur de base de donnÃ©e";
 				echo  $out;
 			}
 
@@ -78,7 +78,7 @@ function mod_flottes_get_ship($ship, $add=false) {
 		}
 
 		else {
-			$out = "selectionnez une planète.";
+			$out = "selectionnez une planÃ¨te.";
 		}
 
 	}
@@ -92,21 +92,21 @@ function mod_flottes_get_ship($ship, $add=false) {
 		$request .="  WHERE ".TABLE_MOD_FLOTTES.".user_id=".$user_data['user_id']." " ;
 
 		if(!($result = $db->sql_query($request))) {
-			$out = "Erreur de base de donnée";
+			$out = "Erreur de base de donnÃ©e";
 			echo  $out;
 		}
 
 		$sql="SELECT planet_id from ".TABLE_MOD_FLOTTES." WHERE planet_id=".$_POST['planet_id']." AND user_id=".$user_data['user_id'];
 
-		if(!($result = mysql_query($sql))) 
+		if(!($result = $db->sql_query($sql))) 
 		{
-			$out .= "selectionnez une planète.";
+			$out .= "selectionnez une planÃ¨te.";
         }
 
 		else 
         {
 			$result = $db->sql_query($sql);
-			$nameid=mysql_num_rows($result) ;
+			$nameid=$db->sql_numrows($result) ;
 
 			if ($nameid==1)
 			{
@@ -146,7 +146,7 @@ function mod_flottes_get_ship($ship, $add=false) {
 
 				if(!($result = $db->sql_query($request))) 
 				{
-					$out = "selectionnez une planète.";
+					$out = "selectionnez une planÃ¨te.";
 				}
 
 				else 
@@ -245,36 +245,36 @@ function buttons_bar($subaction)
 
     //  BOUTON BBCode 2
         if ($subaction == "bbcode2"){
-            echo '<td class="menu_on" width="12.5%">Export BBCode Détaillé</td>'."\n";
+            echo '<td class="menu_on" width="12.5%">Export BBCode DÃ©taillÃ©</td>'."\n";
         }
         else 
         {
         echo '<td class="menu_off" width="12.5%" onclick="window.location = \'index.php?action=flottes&subaction=bbcode2\';">'."\n";
-        echo 'Export BBCode Détaillé'."\n";
+        echo 'Export BBCode DÃ©taillÃ©'."\n";
         echo '</td>'."\n";
         }
     // ------------------------
 
 	//  BOUTON MyBB
  		if ($subaction == "mybb"){
- 			echo '<td class="menu_on" width="12.5%">Export MyBB Détaillé</td>'."\n";
+ 			echo '<td class="menu_on" width="12.5%">Export MyBB DÃ©taillÃ©</td>'."\n";
  		}
  		else 
  		{
  			echo '<td class="menu_off" width="12.5%" onclick="window.location = \'index.php?action=flottes&subaction=mybb\';">'."\n";
- 			echo 'Export MyBB Détaillé'."\n";
+ 			echo 'Export MyBB DÃ©taillÃ©'."\n";
  			echo '</td>'."\n";
  		}
  	// ------------------------
 
 	//  BOUTON Graphe
 		if ($subaction == "graphe"){
-			echo '<td class="menu_on" width="12.5%">Graphe de répartition de flotte</td>'."\n";
+			echo '<td class="menu_on" width="12.5%">Graphe de rÃ©partition de flotte</td>'."\n";
 		}
 		else 
 		{
 			echo '<td class="menu_off" width="12.5%" onclick="window.location = \'index.php?action=flottes&subaction=graphe\';">'."\n";
-			echo 'Graphe de répartition de flotte'."\n";
+			echo 'Graphe de rÃ©partition de flotte'."\n";
 			echo '</td>'."\n";
 		}
 	// ------------------------
@@ -322,11 +322,11 @@ function sauve_color($TCF,$TCFO,$TCFU,$TCFP,$TCFA,$TCB1,$TCB2,$TCB3,$TCB4,$TCB5,
 	$request .="WHERE group_name='mod_flottes'";
 
 	if($result = $db->sql_query($request)) {
-		$out="Couleurs mises à jour";
+		$out="Couleurs mises Ã  jour";
 		}
 
 	else {
-		$out = "selectionnez une planète.";
+		$out = "selectionnez une planÃ¨te.";
 	}
 	echo  $out;
 }

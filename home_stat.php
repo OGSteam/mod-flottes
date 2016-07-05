@@ -28,8 +28,8 @@ $zoom = $pub_zoom;
 
 if(isset($pub_zoom_change_y) && isset($pub_zoom_change_x)) $zoom = ($zoom=="true" ? "false" : "true");
 
-$quet = mysql_query("SELECT coordinates FROM ".TABLE_USER_BUILDING." WHERE coordinates<>'' and user_id =".$user_data['user_id']." LIMIT 1 ;");
-if($result = mysql_fetch_array($quet));
+$quet = $db->sql_query("SELECT coordinates FROM ".TABLE_USER_BUILDING." WHERE coordinates<>'' and user_id =".$user_data['user_id']." LIMIT 1 ;");
+if($result = $db->sql_fetch_row($quet));
 else {
 	echo "<center>Statistiques indisponibe</center>";
 		exit();
@@ -38,9 +38,9 @@ $coords = $result['coordinates'];
 
 $coords = explode(":",$coords);
 
-// enfin, d'après ces coords, on trouve le nom ingame du joueur
-$quet = mysql_query("SELECT player FROM ".TABLE_UNIVERSE." WHERE galaxy = ".$coords[0]." and system = ".$coords[1]." and row = ".$coords[2]);
-$result = mysql_fetch_array($quet);
+// enfin, d'aprÃ¨s ces coords, on trouve le nom ingame du joueur
+$quet = $db->sql_query("SELECT player FROM ".TABLE_UNIVERSE." WHERE galaxy = ".$coords[0]." and system = ".$coords[1]." and row = ".$coords[2]);
+$result = $db->sql_fetch_row($quet);
 $nom_player = $result['player'];
 
 $individual_ranking = galaxy_show_ranking_unique_player($nom_player);
@@ -77,7 +77,7 @@ if(sizeof($dates) > 0) {
 <input type="hidden" name="zoom" value="<?php echo $zoom; ?>" />
 <table><tr><td class='c' colspan='2'>Options:</td></tr>
 <tr>
-<th><U>intervalle d'étude</U>: du <input type="text" size="10"  maxlength="10" name="start_date" value="<?php echo strftime("%d/%m/%Y", $min_date+60*60*2); ?>" /> au <input type="text" size="10" maxlength="10" name="end_date" value="<?php echo strftime("%d/%m/%Y", $max_date); ?>" /> <input type="submit" value="envoyer" /></th>
+<th><U>intervalle d'Ã©tude</U>: du <input type="text" size="10"  maxlength="10" name="start_date" value="<?php echo strftime("%d/%m/%Y", $min_date+60*60*2); ?>" /> au <input type="text" size="10" maxlength="10" name="end_date" value="<?php echo strftime("%d/%m/%Y", $max_date); ?>" /> <input type="submit" value="envoyer" /></th>
 <th>zoom: <input type="image" align="absmiddle" name="zoom_change" src="images/<?php echo ($zoom=="true" ? "zoom_in.png" : "zoom_out.png"); ?>" alt="zoom" /></th>
 </tr>
 </table>
@@ -154,7 +154,7 @@ while ($ranking = current($individual_ranking)) {
 
 echo "<p><b><u style='font-size:14px;'>Les statistiques de ".$nom_player."</u></b></p>";
 
-echo "<table width='800'><tr><td class='c' colspan='2'>Général</td></tr>";
+echo "<table width='800'><tr><td class='c' colspan='2'>GÃ©nÃ©ral</td></tr>";
 
 echo "<tr><td><img src='index.php?action=graphic_curve&player=".$nom_player."&start=".$min_date."&end=".$max_date."&graph=points_rank&titre=Classement par points&zoom=".$zoom."' alt='pas de graphique disponible' /></td> \n";
 
@@ -172,7 +172,7 @@ echo "<tr><td><img src='index.php?action=graphic_curve&player=".$nom_player."&st
 
 echo "<td><img src='index.php?action=graphic_curve&player=".$nom_player."&start=".$min_date."&end=".$max_date."&graph=research_points&titre=Points de recherche&zoom=".$zoom."' alt='pas de graphique disponible' /></td></tr>\n";
 
-$title = "Basé sur vos données dans \"Empire\" et les stats de ".$nom_player." du ".strftime("%d %b %Y %H:%M", $last_date["general"]);
+$title = "BasÃ© sur vos donnÃ©es dans \"Empire\" et les stats de ".$nom_player." du ".strftime("%d %b %Y %H:%M", $last_date["general"]);
 echo "<tr><td class='c' colspan='2'>Divers ".help(null, $title)."</td></tr>";
 
 $user_empire = user_get_empire();
@@ -187,9 +187,9 @@ $t = round(all_technology_cumulate($user_technology)/1000);
 $f = $last["general_pts"] - $b - $d - $l - $t;
 if($f < 0) $f = 0;
 
-if($b==0 && $d==0 && $l==0 && $t==0) echo "<tr><th align='center'>Pas de données dans empire</th>";
-elseif($last["general_pts"] == 0) echo "<tr><th align='center'>Pas de données sur le total de points</th>";
-else echo "<tr><td align='center' width='400'><img src='index.php?action=graphic_pie&values=".$b."_x_".$d."_x_".$l."_x_".$f."_x_".$t."&legend=Batiments_x_Défenses_x_Lunes_x_Flotte_x_Technologies&title=Dernière répartition des points connue' alt='pas de graphique disponible'/></td>\n";
+if($b==0 && $d==0 && $l==0 && $t==0) echo "<tr><th align='center'>Pas de donnÃ©es dans empire</th>";
+elseif($last["general_pts"] == 0) echo "<tr><th align='center'>Pas de donnÃ©es sur le total de points</th>";
+else echo "<tr><td align='center' width='400'><img src='index.php?action=graphic_pie&values=".$b."_x_".$d."_x_".$l."_x_".$f."_x_".$t."&legend=Batiments_x_DÃ©fenses_x_Lunes_x_Flotte_x_Technologies&title=DerniÃ¨re rÃ©partition des points connue' alt='pas de graphique disponible'/></td>\n";
 
 $planet = array();
 $planet_name = array();
@@ -204,7 +204,7 @@ for($i=1; $i<=9; $i++)
 	}
 }
 
-if($b==0 && $d==0 && $l==0 && $t==0) echo "<th align='center'>Pas de données dans empire</th></tr></table>";
+if($b==0 && $d==0 && $l==0 && $t==0) echo "<th align='center'>Pas de donnÃ©es dans empire</th></tr></table>";
 else echo "<td align='center' width='400'><img src='index.php?action=graphic_pie&values=".implode($planet,"_x_")."&legend=".implode($planet_name,"_x_")."&title=Proportion des planetes - lunes comprises' alt='pas de graphique disponible'/></td></tr></table>\n";
 ?>
 <br />
@@ -216,7 +216,7 @@ else echo "<td align='center' width='400'><img src='index.php?action=graphic_pie
 		</tr>
 		<tr>
 			<td class="c" width="175">Date</td>
-			<td class="c" colspan="2">Pts Général</td>
+			<td class="c" colspan="2">Pts GÃ©nÃ©ral</td>
 			<td class="c" colspan="2">Pts Flotte</td>
 			<td class="c" colspan="2">Pts Recherche</td>
 		</tr>

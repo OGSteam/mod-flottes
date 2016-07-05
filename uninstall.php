@@ -45,7 +45,7 @@ if($result != 0){
     // S'il est dedans, on l'enleve
     if($db->sql_numrows($result) != 0)
         $db->sql_query("DELETE FROM ".TABLE_XTENSE_CALLBACKS." where mod_id = $mod_id");
-		echo("<script> alert('La compatibilité du mod Flottes avec le mod Xtense2 a été désinstallée !') </script>");
+		echo("<script> alert('La compatibilitÃ© du mod Flottes avec le mod Xtense2 a Ã©tÃ© dÃ©sinstallÃ©e !') </script>");
 }
 
 ?>

@@ -277,10 +277,10 @@ if($db->sql_numrows($result) != 0){
 	// s'il n'y est pas, on l'ajoute
 	if($db->sql_numrows($result) == 0)
 		$db->sql_query("INSERT INTO ".TABLE_XTENSE_CALLBACKS." (mod_id, function, type, active) VALUES ('$mod_id', 'flottes_import_fleet', 'fleet', 1)");
-	echo("<script> alert('La compatibilité du mod Flottes avec le mod Xtense2 \n est installée !') </script>");		
+	echo("<script> alert('La compatibilitÃ© du mod Flottes avec le mod Xtense2 \n est installÃ©e !') </script>");		
 }
 else {
-	echo("<script> alert('Le mod Xtense 2 n'est pas installé. La compatibilité du mod Flottes ne sera donc pas installé !\nPensez Ã  installer Xtense 2 c'est pratique ;)') </script>");
+	echo("<script> alert('Le mod Xtense 2 n'est pas installÃ©. La compatibilitÃ© du mod Flottes ne sera donc pas installÃ© !\nPensez ÃƒÂ  installer Xtense 2 c'est pratique ;)') </script>");
 }
 ?>
 

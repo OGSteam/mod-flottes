@@ -1,6 +1,6 @@
 Version 1.10
-- mise à niveau pour Ogspy 3.0.7
-- correction des index de boucle sur les id de planètes et lunes
+- mise Ã  niveau pour Ogspy 3.0.7
+- correction des index de boucle sur les id de planÃ¨tes et lunes
 
 Version 1.08c
 - typo dans certains commentaires
@@ -12,14 +12,14 @@ Version 1.08b
 
 Version 1.08a
 - correction code xtense2
-- compatibilité totale avec xtense2
+- compatibilitÃ© totale avec xtense2
 - ajout banniere du mod
 - modification du menu
 - corrections code mineures
 
 Version 1.07
-- Correction de la prise en compte du séparateur de milliers
-- Correction d'un Warning en cas de division par zéro dans l'export bbcode
+- Correction de la prise en compte du sÃ©parateur de milliers
+- Correction d'un Warning en cas de division par zÃ©ro dans l'export bbcode
 - Ajout de la liaison avec Xtense V2
 
 Version 1.06
@@ -29,36 +29,36 @@ Version 1.06
 - Correction pourcentage de protection de la flotte par la defense
 - Changement mise en forme des exportations
 
-de V 1.01 à V 1.05
+de V 1.01 Ã  V 1.05
 - correction affichage mines et usines en page Empire
-- Mise à jour en 1 passe
+- Mise Ã  jour en 1 passe
 - Correction du bug de la page Empire sous OGSpy.
-- Correction du bug d'adressage du fichier ogame.php ou univers.php en fonction des paramètres admin.
+- Correction du bug d'adressage du fichier ogame.php ou univers.php en fonction des paramÃ¨tres admin.
 - Correction du bug Import de flotte.
 
 V 1.00
 - Suppression simulation empire.
-- Décalage des planètes en cas ne nouvelles colonies.
-- Révision des exports BBCode.
-- ajout de 2 champs en page admin pour le type de serveur et le nombre de planète à afficher par page.
+- DÃ©calage des planÃ¨tes en cas ne nouvelles colonies.
+- RÃ©vision des exports BBCode.
+- ajout de 2 champs en page admin pour le type de serveur et le nombre de planÃ¨te Ã  afficher par page.
 Support OGSpy
 - Support V 3.02C  OK
-- Support 3.03 (non testé)
-- Support 3.10 (Non testé)
+- Support 3.03 (non testÃ©)
+- Support 3.10 (Non testÃ©)
 Support UniSpy
 - Support 1.00 UNISPY OK
 
 V 0.76
-- Possibilité de désactiver le partage des données Empire aux autres membres de votre alliance.
-Les flottes sont partagé aux membres de votre alliance et aux joueurs que vous rajoutez dans la liste
+- PossibilitÃ© de dÃ©sactiver le partage des donnÃ©es Empire aux autres membres de votre alliance.
+Les flottes sont partagÃ© aux membres de votre alliance et aux joueurs que vous rajoutez dans la liste
 
 V 0.75
 - Ajout du traqueur dans la liste des vaisseaux
 
 V 0.73 et 0.74
-- Ajout d'un export BBCode plus détaillé (origine @Moa666).
+- Ajout d'un export BBCode plus dÃ©taillÃ© (origine @Moa666).
 - Corrections mineures (Orthographe et autres...)
-- Correction des couts matières par vaisseau.
+- Correction des couts matiÃ¨res par vaisseau.
 
 
 V 0.72
@@ -70,12 +70,12 @@ V 0.71
 - Corrections mineures (Orthographe et autres...)
 
 V 0.7
-- Intégration de la page insertion de @Lithie (avec quelques modifications). Possibilité de sélectionner une planète par son nom ou ses coordonnées.
+- IntÃ©gration de la page insertion de @Lithie (avec quelques modifications). PossibilitÃ© de sÃ©lectionner une planÃ¨te par son nom ou ses coordonnÃ©es.
 - Ajout de la gestion des Satellites Solaires.
-- Révision de l'export BBCode (joueur non classé ou classement absent, total points)
+- RÃ©vision de l'export BBCode (joueur non classÃ© ou classement absent, total points)
 
 V 0.6
-- Intégration des écrans du mod Empire avec la gestion de groupe. Ceci n'est vraiment utile que pour les serveurs multi-alliances.
+- IntÃ©gration des Ã©crans du mod Empire avec la gestion de groupe. Ceci n'est vraiment utile que pour les serveurs multi-alliances.
 
 V 0.5
 - gestion des droits par alliance (ou groupe de joueur)
@@ -84,29 +84,29 @@ exemple flottes_Monalliance
 Vous pouvez supprimer le groupe mod_flotte
 
 V 0.4
-- Prévisualisation de l'export BBCode.
+- PrÃ©visualisation de l'export BBCode.
 - Epuration de code, et refonte pour une utilisation plus souple.
 - Prise en compte du nouveau vaisseau.
 
 
 V 0.3
-- Correction de bugs pour désinstaller, mise à jour.
+- Correction de bugs pour dÃ©sinstaller, mise Ã  jour.
 - Finalisation fonction import auto via plug-in Naq version > 1.3.0
 
 V 0.21
-- Ajout de l'affichage des défenses des autres joueurs.
+- Ajout de l'affichage des dÃ©fenses des autres joueurs.
 
 V 0.2
-- Gestion des couleurs (les mêmes pour tous le monde), dans OGSpy et sur le forum.
+- Gestion des couleurs (les mÃªmes pour tous le monde), dans OGSpy et sur le forum.
 
 V 0.1c
-- normalement identique à 0.1b mais comme je n'été pas sûr!!!
+- normalement identique Ã  0.1b mais comme je n'Ã©tÃ© pas sÃ»r!!!
 
 V 0.1b
 - Rajout de test
-- Correction de bug date (j'espère)
+- Correction de bug date (j'espÃ¨re)
 - Protection contre les erreurs d'import de lune.
 
 v0.1:
-- Première version.
+- PremiÃ¨re version.
 

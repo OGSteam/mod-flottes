@@ -22,10 +22,10 @@ function mod_flottes_plugin_shipbyid($idplan,$ship) {
 	define("TABLE_MOD_FLOTTES_ADM", $table_prefix."mod_flottes_admin");
 
     if (defined("OGS_PLUGIN_DEBUG")) global $fp;
-    if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> entrée fonction mod_flottes_plugin_shipbyid!\n");
+    if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> entrÃ©e fonction mod_flottes_plugin_shipbyid!\n");
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"planetid: ".$idplan." - contenu flotte: ".$ship."!\n");
-    // $idplan = ID OGSpy de la planète format INT(11) valeurs comprise entre 1 et 18
-    // $ship = texte brut écran flotte OGame équivalant au copié - collé classique pour ajouter des donnée dans OGSpy avant le plugin
+    // $idplan = ID OGSpy de la planÃ¨te format INT(11) valeurs comprise entre 1 et 18
+    // $ship = texte brut Ã©cran flotte OGame Ã©quivalant au copiÃ© - collÃ© classique pour ajouter des donnÃ©e dans OGSpy avant le plugin
     $user_empire = user_get_empire();
     $user_building = $user_empire["building"];
     
@@ -56,7 +56,7 @@ if ($GA=='UNIVERS')
     $datei= mktime(0, 0, 0, date("m")  , date("d"), date("Y"));
     $OK = false;
     $out=0;
-    $mess="Mise à jour flotte";
+    $mess="Mise Ã  jour flotte";
     
     $get_ship = array("PT" => 0, "GT" => 0, "CLE" => 0, "CLO" => 0, "CR" => 0, "VB" => 0,
                         "VC" => 0, "REC" => 0, "SE" => 0, "BMD" => 0, "DST" => 0, "EDLM" => 0, "TRA" =>0, "SAT" =>0);
@@ -71,10 +71,10 @@ if ($GA=='UNIVERS')
         }
         else {
             $out=2;
-            $mess = "Ce n'est pas un écran de flotte";
+            $mess = "Ce n'est pas un Ã©cran de flotte";
         }
 
-	// On enlève le séparateur décimal
+	// On enlÃ¨ve le sÃ©parateur dÃ©cimal
 	$line = str_replace('.', '', $line);
 
         if($OK && preg_match("/^([\D\s]+)\s+(\d+)/", $line, $arr)) {
@@ -89,18 +89,18 @@ if ($GA=='UNIVERS')
     }
     
     $sql="SELECT planet_id from ".TABLE_MOD_FLOTTES." WHERE planet_id=".$idplan." AND user_id=".$user_data['user_id'];
-    if(!($result = mysql_query($sql))) {
+    if(!($result = $db->sql_query($sql))) {
         $out = 1;
-        $mess=mysql_error();
+        $mess=$db->sql_error();
         }    
     else {
         $result = $db->sql_query($sql);
-    $nameid=mysql_num_rows($result) ;
+    $nameid=$db->sql_numrows($result) ;
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> nameid :".$nameid."\n");
     
     if ($nameid==1)
     {
-/// Si la planète existe déjà on met à jour les données
+/// Si la planÃ¨te existe dÃ©jÃ  on met Ã  jour les donnÃ©es
         $request = "UPDATE ".TABLE_MOD_FLOTTES." SET";
         foreach($get_ship as $key => $value) {
             $request .= " `".$key."`=".$value.", ";
@@ -122,14 +122,14 @@ if ($GA=='UNIVERS')
         $request .= " WHERE user_id=".$user_data['user_id'];
         $request .=" AND planet_id=".$idplan;
         $db->sql_query($request);
- if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> requête :".$request."\n");
+ if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> requÃªte :".$request."\n");
     }
     else {
-/// Sinon on créé la planète et on met à jour les données    
+/// Sinon on crÃ©Ã© la planÃ¨te et on met Ã  jour les donnÃ©es    
         $request = "INSERT INTO ".TABLE_MOD_FLOTTES." (user_id, planet_id) VALUES (".$user_data['user_id'].",  ".$idplan." )" ;
         if(!($result = $db->sql_query($request))) {
         $out = 1;
-        $mess=mysql_error();
+        $mess=$db->sql_error();
         }
         else {
         if (isset($user_building[$idplan]["planet_name"])& $user_building[$idplan]["planet_name"]!=''){
@@ -149,7 +149,7 @@ if ($GA=='UNIVERS')
         $request .= " WHERE user_id=".$user_data['user_id'];
         $request .=" AND planet_id=".$idplan;
         $db->sql_query($request);
- if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> requête :".$request."\n");
+ if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> requÃªte :".$request."\n");
 
         $request = "UPDATE ".TABLE_MOD_FLOTTES." SET";
         foreach($get_ship as $key => $value) {
@@ -168,22 +168,22 @@ if ($GA=='UNIVERS')
     }
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> sortie fonction mod_flottes_plugin_shipbyid : ".$out."\n");
 /// $out = 0 si import OK
-/// $out = 1 si n'a pas trouvé la planète    
-/// $out = 2 si le texte envoyé ne contient pas 'Type de vaisseau'
-/// en cas d'échec, la variable $mess prend la valeur de l'erreur SQL
+/// $out = 1 si n'a pas trouvÃ© la planÃ¨te    
+/// $out = 2 si le texte envoyÃ© ne contient pas 'Type de vaisseau'
+/// en cas d'Ã©chec, la variable $mess prend la valeur de l'erreur SQL
     return $out;
 }
 
 function mod_flottes_plugin_shipbyname($nplan,$ship) {
 	
-	// $nplan = Texte contenant le nom et les coordonnées de la planète ex: TRUlulu [4:245:3]
-	// $ship = texte brut écran flotte OGame équivalant au copié - collé classique pour ajouter des donnée dans OGSpy avant le plugin
+	// $nplan = Texte contenant le nom et les coordonnÃ©es de la planÃ¨te ex: TRUlulu [4:245:3]
+	// $ship = texte brut Ã©cran flotte OGame Ã©quivalant au copiÃ© - collÃ© classique pour ajouter des donnÃ©e dans OGSpy avant le plugin
 	global $db, $table_prefix, $user_data;
 	define("TABLE_MOD_FLOTTES", $table_prefix."mod_flottes");
 	define("TABLE_MOD_FLOTTES_ADM", $table_prefix."mod_flottes_admin");
 	
 	if (defined("OGS_PLUGIN_DEBUG")) global $fp;
-    if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> entrée fonction mod_flottes_plugin_ship!\n");
+    if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> entrÃ©e fonction mod_flottes_plugin_ship!\n");
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"planetid: ".$nplan." - contenu flotte: ".$ship."!\n");
 	
 	$user_empire = user_get_empire();
@@ -193,11 +193,11 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 	//Flotte
 	/*
 	$flottes_lang["planet_name"]= "Nom Planet";
-	$flottes_lang["coordinates"]= "Coordonnées";
+	$flottes_lang["coordinates"]= "CoordonnÃ©es";
 	$flottes_lang["planet_id"]= "ID Planet";
 	$flottes_lang["PT"] = "Petit transporteur";
 	$flottes_lang["GT"] = "Grand transporteur";
-	$flottes_lang["CLE"] = "Chasseur léger";
+	$flottes_lang["CLE"] = "Chasseur lÃ©ger";
 	$flottes_lang["CLO"] = "Chasseur lourd";
 	$flottes_lang["CR"] = "Croiseur";
 	$flottes_lang["VB"] = "Vaisseau de bataille";
@@ -206,7 +206,7 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 	$flottes_lang["SE"] = "Sonde espionnage";
 	$flottes_lang["BMD"] = "Bombardier";
 	$flottes_lang["DST"] = "Destructeur";
-	$flottes_lang["EDLM"] = "Étoile de la mort";
+	$flottes_lang["EDLM"] = "Ã‰toile de la mort";
 	$flottes_lang["TRA"] = "Traqueur";
 	$flottes_lang["SAT"] = "Satellite solaire";
 	*/
@@ -218,12 +218,12 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 	$OK = false;
 	$out=0;
 	$idplan=0;
-	$mess="Mise à jour flotte";
+	$mess="Mise Ã  jour flotte";
 	$namplan=array();
 	$coorplan=array();
 	$nplan=trim($nplan);
 	$valid=0;
-/// extraction de l'id planète	
+/// extraction de l'id planÃ¨te	
 	$patcoor="/[0-9:]{4,8}/";
 	$patname="#^[^ ]+\s#";
 	
@@ -266,10 +266,10 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 		}
 		else {
 			$out=2;
-			$mess = "Ce n'est pas un écran de flotte";
+			$mess = "Ce n'est pas un Ã©cran de flotte";
 		}
 
-		// On enlève le séparateur décimal
+		// On enlÃ¨ve le sÃ©parateur dÃ©cimal
 		$line = str_replace('.', '', $line);
 
 		if($OK && preg_match("/^([\D\s]+)\s+(\d+)/", $line, $arr)) {
@@ -284,17 +284,17 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 	}
 	
 	$sql="SELECT planet_id from ".TABLE_MOD_FLOTTES." WHERE planet_id=".$idplan." AND user_id=".$user_data['user_id'];
-	if(!($result = mysql_query($sql))) {
+	if(!($result = $db->sql_query($sql))) {
 		$out = 1;
-		$mess=mysql_error();
+		$mess=$db->sql_error();
 		}	
 	else {
 		$result = $db->sql_query($sql);
-	$nameid=mysql_num_rows($result) ;
+	$nameid=$db->sql_numrows($result) ;
 	
 	if ($nameid==1)
 	{
-/// Si la planète existe déjà on met à jour les données
+/// Si la planÃ¨te existe dÃ©jÃ  on met Ã  jour les donnÃ©es
 		$request = "UPDATE ".TABLE_MOD_FLOTTES." SET";
 		foreach($get_ship as $key => $value) {
 			$request .= " `".$key."`=".$value.", ";
@@ -319,11 +319,11 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 		$db->sql_query($request);
 	}
 	else {
-/// Sinon on créé la planète et on met à jour les données	
+/// Sinon on crÃ©Ã© la planÃ¨te et on met Ã  jour les donnÃ©es	
 		$request = "INSERT INTO ".TABLE_MOD_FLOTTES." (user_id, planet_id) VALUES (".$user_data['user_id'].",  ".$idplan." )" ;
 		if(!($result = $db->sql_query($request))) {
 		$out = 1;
-		$mess=mysql_error();
+		$mess=$db->sql_error();
 		}
 		else {
 			if (isset($user_building[$idplan]["planet_name"])& $user_building[$idplan]["planet_name"]!=''){
@@ -360,9 +360,9 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 	
 	}
 /// $out = 0 si import OK
-/// $out = 1 si n'a pas trouvé la planète	
-/// $out = 2 si le texte envoyé ne contient pas 'Type de vaisseau'
-/// en cas d'échec, la variable $mess prend la valeur de l'erreur SQL
+/// $out = 1 si n'a pas trouvÃ© la planÃ¨te	
+/// $out = 2 si le texte envoyÃ© ne contient pas 'Type de vaisseau'
+/// en cas d'Ã©chec, la variable $mess prend la valeur de l'erreur SQL
 	return $out;
 }
 

@@ -63,7 +63,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	<td class="c">Totaux</td>
 </tr>
 <tr>
-	<th><a>Coordonnées</a></th>
+	<th><a>CoordonnÃ©es</a></th>
 <?php
 for ($$i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	$coordinates = $user_building[$i]["coordinates"];
@@ -93,7 +93,7 @@ for ($$i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	<td>&nbsp;</td>
 </tr>
 <tr>
-	<th><a>Température</a></th>
+	<th><a>TempÃ©rature</a></th>
 <?php
 for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	$temperature = $user_building[$i]["temperature"];
@@ -174,7 +174,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 </tr>
 
 <!--
-Métal
+MÃ©tal
 -->
 
 <tr>
@@ -260,7 +260,7 @@ for ($i=$start ; $i<=$start+$nplapage-1; $i++) {
 </tr>
 
 <!--
-Deutérium
+DeutÃ©rium
 -->
 
 <tr>
@@ -317,7 +317,7 @@ for ($i=$start ; $i<=$start+$nplapage-1; $i++) {
 	<th><font color='white'><div id='total_b_pts'>-</div></font></th>
 </tr>
 <tr>
-<th><a>Défences</a></th>
+<th><a>DÃ©fences</a></th>
 <?php
 for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	echo "\t<input type='hidden' id='defence_".$i."' value='".implode($user_defence[$i], "<>")."' />";

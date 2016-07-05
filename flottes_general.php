@@ -36,7 +36,7 @@ buttons_bar($pub_subaction);
 		<td class='c' colspan='19'>Flottes</td>
 	</tr>
 	<tr>
-		<th colspan='9'><input type="checkbox" name="active" OnClick='this.form.submit();' <?php echo ($members_data=='1' ? 'checked' : ''); ?>>&nbsp;J'autorise les membres cités ci-dessous à voir mon empire en plus de ma flotte.<br>Il n'ont en aucun cas la possibilité de changer quoi que ce soit.</th>
+		<th colspan='9'><input type="checkbox" name="active" OnClick='this.form.submit();' <?php echo ($members_data=='1' ? 'checked' : ''); ?>>&nbsp;J'autorise les membres citÃ©s ci-dessous Ã  voir mon empire en plus de ma flotte.<br>Il n'ont en aucun cas la possibilitÃ© de changer quoi que ce soit.</th>
 		<th colspan='10'><select name='add_user'>
 <?php
 			$request = "SELECT user_id, user_name FROM ".TABLE_USER;
@@ -48,7 +48,7 @@ buttons_bar($pub_subaction);
 		</select>&nbsp; &nbsp;<input type='submit' name='add' value='Ajouter ce membre ci-dessous'></th>
 	</tr>
 	<tr>
-	<th colspan='9'>Auront accès: <?php
+	<th colspan='9'>Auront accÃ¨s: <?php
 		$request = "SELECT DISTINCT user_name FROM ".TABLE_USER
 			." LEFT JOIN ".TABLE_USER_GROUP." ON ".TABLE_USER.".user_id = ".TABLE_USER_GROUP.".user_id"
 			." WHERE user_admin='1' OR (group_id=".(!empty($group_id) ? $group_id : "'-1'")." AND ".TABLE_USER_GROUP.".user_id=".TABLE_USER.".user_id)"
@@ -88,7 +88,7 @@ buttons_bar($pub_subaction);
 		foreach($mod_flottes_lang as $key => $value) {
 			$request .= "`".$key."`, ";
 //			if ($key=="planet_name") $key= "Nom Planet";
-//			if ($key=="coordinates") $key= "Coordonnées";
+//			if ($key=="coordinates") $key= "CoordonnÃ©es";
 //			if ($key=="planet_id") $key= "ID Planet";
 			echo "<td class='c' width='6.66%'>".$lib_flottes_lang[$key]."</td>";
 		}
@@ -101,7 +101,7 @@ buttons_bar($pub_subaction);
 //// En jaune si plus vieux que 2 jours sinon en vert
 
 	$datei= mktime(0, 0, 0, date("m")  , date("d")-2, date("Y"));
-	while ($row = mysql_fetch_row($result)) {
+	while ($row = $db->sql_fetch_row($result)) {
 	 	echo '<tr>';
 	 		$color=$CFO;
 	 		if ($row[0]=='0'){ $datem=0;}
@@ -117,11 +117,11 @@ buttons_bar($pub_subaction);
 	}
 	$out="";
 
-// Début joueur
+// DÃ©but joueur
 
 	$request= "SELECT COUNT(planet_id) FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id'];
 	$result = $db->sql_query($request);
-	list($nbj)=mysql_fetch_row($result);
+	list($nbj)=$db->sql_fetch_row($result);
 	if ($nbj!=0){
 
 // Total flotte joueur
@@ -140,7 +140,7 @@ buttons_bar($pub_subaction);
 			echo "</tr>\n<tr>";
 			echo '</tr>';
 
-			while ($row = mysql_fetch_row($result)) {
+			while ($row = $db->sql_fetch_row($result)) {
 	    		echo '<tr>';
     			for ($j = 0; $j < count($row); $j++) {
        		 		echo ($row[$j] == NULL) ? '' : "\t"."<th><b><font color=".$CFU.">".$row[$j]."</font></b></th>";
@@ -172,7 +172,7 @@ buttons_bar($pub_subaction);
 		$request .= " as tot FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id'];
 		
 		if ($result = $db->sql_query($request)){
-			$total = mysql_fetch_row($result);
+			$total = $db->sql_fetch_row($result);
 			if ($total[0]==''){$total=0;}
 			else {$total=$total[0];}
 			
@@ -193,7 +193,7 @@ buttons_bar($pub_subaction);
 				echo "</tr>\n<tr>";
 				echo '</tr>';
 				
-				while ($row = mysql_fetch_row($result)) {
+				while ($row = $db->sql_fetch_row($result)) {
 	    			echo '<tr>';
     				for ($j = 0; $j < count($row); $j++) {
     					if ($j<2) {
@@ -219,11 +219,11 @@ buttons_bar($pub_subaction);
 
 // fin joueur
 
-// Début alliance
+// DÃ©but alliance
 if (!empty($group_id)) {
 	$request= "SELECT COUNT(planet_id) FROM ".TABLE_MOD_FLOTTES;
 	$result = $db->sql_query($request);
-	list($nba)=mysql_fetch_row($result);
+	list($nba)=$db->sql_fetch_row($result);
 	if ($nba!=0){
 
 // Total flotte alliance
@@ -241,7 +241,7 @@ if (!empty($group_id)) {
 		$result = $db->sql_query($request);
 	echo "</tr>\n<tr>";
 	echo '</tr>';
-	while ($row = mysql_fetch_row($result)) {
+	while ($row = $db->sql_fetch_row($result)) {
 	    echo '<tr>';
 
     	for ($j = 0; $j < count($row); $j++) {
@@ -257,11 +257,11 @@ if (!empty($group_id)) {
 }
 // fin Alliance
 
-// Début serveur
+// DÃ©but serveur
 
 	$request= "SELECT COUNT(planet_id) FROM ".TABLE_MOD_FLOTTES;
 	$result = $db->sql_query($request);
-	list($nbs)=mysql_fetch_row($result);
+	list($nbs)=$db->sql_fetch_row($result);
 	if ($nbs!=0){
 
 // Total flotte Serveur
@@ -277,7 +277,7 @@ if (!empty($group_id)) {
 		$result = $db->sql_query($request);
 	echo "</tr>\n<tr>";
 	echo '</tr>';
-	while ($row = mysql_fetch_row($result)) {
+	while ($row = $db->sql_fetch_row($result)) {
 	    echo '<tr>';
 
     	for ($j = 0; $j < count($row); $j++) {
@@ -312,9 +312,9 @@ if (!empty($group_id)) {
 // verification du partage empire
 $request = "SELECT DISTINCT ".TABLE_USER.".user_id, ".TABLE_USER.".user_name FROM ".TABLE_USER." LEFT JOIN ".TABLE_MOD_FLOTTES." on ".TABLE_USER.".user_id=".TABLE_MOD_FLOTTES.".user_id WHERE ".TABLE_MOD_FLOTTES.".activate='1' AND ".TABLE_MOD_FLOTTES.".user_id='".$user_data["user_id"]."'";
 	$result = $db->sql_query($request);
-	$validemp = (mysql_num_rows($result)==1 || $user_data["user_admin"] == 1) ? TRUE : FALSE;
+	$validemp = ($db->sql_fetch_row($result)==1 || $user_data["user_admin"] == 1) ? TRUE : FALSE;
 	
-// je suis admin, ou dans le groupe "mod_flottes" ou j'ai peut etre été autorisé a voir qq de particulier
+// je suis admin, ou dans le groupe "mod_flottes" ou j'ai peut etre Ã©tÃ© autorisÃ© a voir qq de particulier
 			if($user_data["user_admin"] == 1 || !$forbidden || !empty($ids_autorised)) {
 
 			if($user_data["user_admin"] == 1 ) {
@@ -348,7 +348,7 @@ $request = "SELECT DISTINCT ".TABLE_USER.".user_id, ".TABLE_USER.".user_name FRO
 				<input type='hidden' name='action' value='flottes' >
 				<select name="flottes_user_id">
 <?php
-	// $ok verifit si j'ai pas essayé de tricher:
+	// $ok verifit si j'ai pas essayÃ© de tricher:
 					$ok = false;
 					while(list($user_id, $user_name)= $db->sql_fetch_row($result)) {
 						if(empty($user_id) && empty($user_name)) continue;
@@ -385,12 +385,12 @@ else {
 
 if ($pub_subaction2 != "def" & $validemp) {
 	echo "\t\t\t"."<th class='c' width='150' onclick=\"window.location = 'index.php?action=flottes&subaction2=def&flottes_user_id=".$flottes_user_id."';\">";
-	echo "<a style='cursor:pointer'><font color='lime'>Défenses</font></a>";
+	echo "<a style='cursor:pointer'><font color='lime'>DÃ©fenses</font></a>";
 	echo "</th>";
 }
 else {
 	echo "\t\t\t"."<th width='150'>";
-	echo "<a>Défenses</a>";
+	echo "<a>DÃ©fenses</a>";
 	echo "</th>";
 }
 

@@ -24,13 +24,13 @@ global $CF,$CFO,$CFU,$CFP,$CFA,$CB1,$CB2,$CB3,$CB4,$CB5,$GA,$PLA;
 
 buttons_bar($pub_subaction);
 
-$user_flottes = user_get_empire();
+$user_flottes = user_get_empire($user_data['user_id']);
 $user_building = $user_flottes["building"];
 
 $affplanet=compte_planet($user_data['user_id'],$nplapage,$gameselect);
 //var_dump($nplapage, $affplanet[0], $affplanet[1], $affplanet[2], $affplanet[3], $user_building, $view, $pub_view);
 
-$nb_planete = find_nb_planete_user();
+$nb_planete = find_nb_planete_user($user_data["user_id"]);
 
 //require_once("parameters/lang_empire.php");
 
@@ -43,7 +43,7 @@ else $view = $pub_view;
 <input type='hidden' name='permit' value='change' >
 <table width="100%">
 	<tr><td colspan='15'>&nbsp;</td></tr>
-<!--  selection planète  -->
+<!--  selection planÃ¨te  -->
 <tr>
 <?php
 if ($affplanet[1]==0) {
@@ -62,12 +62,12 @@ for ($i=0 ; $i<=$affplanet[1] ; $i++) {
 }
 
 ?>
-	<!--<th colspan="5" onClick="window.location = 'index.php?action=home&view=planets';"><center><a style='cursor:pointer'>Planètes</a></center></th>
+	<!--<th colspan="5" onClick="window.location = 'index.php?action=home&view=planets';"><center><a style='cursor:pointer'>PlanÃ¨tes</a></center></th>
 	<th colspan="5" onClick="window.location = 'index.php?action=home&view=moons';"><center><a style='cursor:pointer'>Lunes</a></center></th>-->
 	</tr>
 
 <tr>
-	<th width="10%"><a>Sélectionnez une planete</a></th>
+	<th width="10%"><a>SÃ©lectionnez une planete</a></th>
 <?php
 $idp=0;
 $liste_planet='';
@@ -105,7 +105,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 <tr>
-	<th><a>Coordonnées</a></th>
+	<th><a>CoordonnÃ©es</a></th>
 <?php
 for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	if ($i < ($nb_planete+$start)) {
@@ -123,7 +123,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 
-<!--  Fin selection planète -->
+<!--  Fin selection planÃ¨te -->
 
 	
 	<tr><td colspan='19'>&nbsp;</td></tr>
@@ -133,7 +133,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	<tr></tr>
 	<tr>
 	<th colspan='19'>
-	<textarea  name='ship' rows="20" id='ship' onFocus='clear_box()'>Je sélectionne une planète et copie ici la partie "Flottes"</textarea><br>
+	<textarea  name='ship' rows="20" id='ship' onFocus='clear_box()'>Je sÃ©lectionne une planÃ¨te et copie ici la partie "Flottes"</textarea><br>
 	<input type='submit' name='add_ship' value='Nouvelle insertion'>&nbsp; &nbsp;<input type='submit' name='add_ship' value='Supprimer cette flotte'>
 	</th></tr>
 	<tr><td colspan='19'>&nbsp;</td></tr>

@@ -75,7 +75,7 @@ if ($is_ok == true)
 		$request .="'yellow', 'red', 'green', 'cyan', 'orange')";
 		$result = $db->sql_query($request);
 		
-		// Groupe toujours autorisé a voir:
+		// Groupe toujours autorisÃ© a voir:
 		$request = "INSERT INTO ".TABLE_GROUP." (group_name)   VALUES ('mod_flottes')";
 		$db->sql_query($request);
 	
@@ -98,13 +98,13 @@ if ($is_ok == true)
 				// s'il n'y est pas : alors on l'ajoute!
 				if($nresult == 0)
 				$db->sql_query("INSERT INTO ".TABLE_XTENSE_CALLBACKS." (mod_id, function, type, active) VALUES ('$mod_id', 'flottes_import_fleet', 'fleet', 1)");
-				echo("<script> alert('La compatibilité du mod Flottes avec le mod Xtense2 est installée !') </script>");	
+				echo("<script> alert('La compatibilitÃ© du mod Flottes avec le mod Xtense2 est installÃ©e !') </script>");	
 			}
-		else	    //On averti qu'Xtense 2 n'est pas installé :
-			echo("<script> alert('Le mod Xtense 2 n\'est pas installé. \nLa compatibilité du mod Flottes ne sera donc pas installée !\nPensez à installer Xtense 2 c'est pratique ;)') </script>");
+		else	    //On averti qu'Xtense 2 n'est pas installÃ© :
+			echo("<script> alert('Le mod Xtense 2 n\'est pas installÃ©. \nLa compatibilitÃ© du mod Flottes ne sera donc pas installÃ©e !\nPensez Ã  installer Xtense 2 c'est pratique ;)') </script>");
 	}
 else
 	{
-		echo  "<script>alert('Désolé, un problème a eu lieu pendant l'installation, corrigez les problèmes survenue et réessayez.');</script>";
+		echo  "<script>alert('DÃ©solÃ©, un problÃ¨me a eu lieu pendant l'installation, corrigez les problÃ¨mes survenue et rÃ©essayez.');</script>";
 	}
 ?>
