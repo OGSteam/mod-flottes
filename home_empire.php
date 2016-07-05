@@ -20,7 +20,7 @@ require_once("./includes/".$phpfonc.".php");
 
 if ($gameselect=='OGAME') require_once("parameters/lang_empire.php");
 
-$user_empire = user_get_empire();
+$user_empire = user_get_empire($user_data["user_id"]);
 $user_building = $user_empire["building"];
 $user_defence = $user_empire["defence"];
 $user_technology = $user_empire["technology"];

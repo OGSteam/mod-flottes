@@ -26,7 +26,7 @@ function mod_flottes_plugin_shipbyid($idplan,$ship) {
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"planetid: ".$idplan." - contenu flotte: ".$ship."!\n");
     // $idplan = ID OGSpy de la planète format INT(11) valeurs comprise entre 1 et 18
     // $ship = texte brut écran flotte OGame équivalant au copié - collé classique pour ajouter des donnée dans OGSpy avant le plugin
-    $user_empire = user_get_empire();
+    $user_empire = user_get_empire($user_data["user_id"]);
     $user_building = $user_empire["building"];
     
     require_once("./mod/flottes/flottes_lang.php");
@@ -186,7 +186,7 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"=> entrée fonction mod_flottes_plugin_ship!\n");
     if (defined("OGS_PLUGIN_DEBUG")) fwrite($fp,"planetid: ".$nplan." - contenu flotte: ".$ship."!\n");
 	
-	$user_empire = user_get_empire();
+	$user_empire = user_get_empire($user_data["user_id"]);
 	$user_building = $user_empire["building"];
 	
 	 require_once("mod/flottes/flottes_lang.php");

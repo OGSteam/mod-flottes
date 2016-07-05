@@ -175,7 +175,7 @@ echo "<td><img src='index.php?action=graphic_curve&player=".$nom_player."&start=
 $title = "Basé sur vos données dans \"Empire\" et les stats de ".$nom_player." du ".strftime("%d %b %Y %H:%M", $last_date["general"]);
 echo "<tr><td class='c' colspan='2'>Divers ".help(null, $title)."</td></tr>";
 
-$user_empire = user_get_empire();
+$user_empire = user_get_empire($user_data["user_id"]);
 $user_building = $user_empire["building"];
 $user_defence = $user_empire["defence"];
 $user_technology = $user_empire["technology"];

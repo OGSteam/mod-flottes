@@ -19,7 +19,7 @@ require_once("./mod/flottes/flottes_lang.php");
 require_once("./includes/".$phpfonc.".php");
 //require_once("parameters/lang_empire.php");
 
-$user_flottes = user_get_empire();
+$user_flottes = user_get_empire($user_data["user_id"]);
 $user_building = $user_flottes["building"];
 $user_defence = $user_flottes["defence"];
 $user_technology = $user_flottes["technology"];
