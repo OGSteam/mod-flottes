@@ -53,7 +53,7 @@ function flottes_import($user_id, $coords, $planet_name, $planet_type, $fleet) {
     
     global $db;
     
-    // Les coordonnees sous forme de chaïne
+    // Les coordonnees sous forme de chaÃ¯ne
     $coord = $coords[0].":".$coords[1].":".$coords[2];
     // Le Timestamp pour l'enregistrement
     $datei = mktime(0, 0 , 0, date("m"), date("d"), date("Y"));

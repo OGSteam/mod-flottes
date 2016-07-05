@@ -68,11 +68,11 @@ if ($TPLA) {$PLA=$TPLA;}
 // validation modification couleur
 if(isset($pub_add_adm) ){
 	switch($pub_add_adm) {
-		case "Mise à jour couleur":
+		case "Mise Ã  jour couleur":
 			sauve_color($CF,$CFO,$CFU,$CFP,$CFA,$CB1,$CB2,$CB3,$CB4,$CB5,$GA,$TPLA);
 		break;
 		
-		case "Couleur par défaut":
+		case "Couleur par dÃ©faut":
 			$CF='lime';
 			$CFO='yellow';
 			$CFU='red';
@@ -85,7 +85,7 @@ if(isset($pub_add_adm) ){
 			$CB5='orange';
 			$GA='OGAME';
 			$PLA='9';
-			echo "Couleurs par défaut";
+			echo "Couleurs par dÃ©faut";
 		break;
 	}
 }
@@ -242,7 +242,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// NB planete par fiche
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='white'>Nombre de planète par page (UNIVERS)</font></b></th>";
+echo "<b><font color='white'>Nombre de planÃ¨te par page (UNIVERS)</font></b></th>";
 echo "<th colspan='6'>";
 echo '<input type="text" name="pla" size="10" maxlength="20" value="'.$PLA.'">';
 
@@ -254,9 +254,9 @@ echo "<input type='submit' value='OK'/></th></tr>";
 //// bouton de validation
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<input type='submit' name='add_adm' value='Mise à jour couleur'></th>";
+echo "<input type='submit' name='add_adm' value='Mise Ã  jour couleur'></th>";
 echo "<th colspan='6'>";
-echo "<input type='submit' name='add_adm' value='Couleur par défaut'></th></tr>";
+echo "<input type='submit' name='add_adm' value='Couleur par dÃ©faut'></th></tr>";
 echo "</table>";
 
 echo"</form>";

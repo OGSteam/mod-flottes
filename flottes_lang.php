@@ -21,7 +21,7 @@ if (!defined('IN_SPYOGAME')) {
 
 $request= "SELECT config_value FROM ".TABLE_CONFIG." WHERE config_name='language'";
 if($result = $db->sql_query($request)) {
-	while($ligne = mysql_fetch_row($result)) {	
+	while($ligne = $db->sql_fetch_row($result)) {	
 		$dblang=$ligne[0];
 	}
 }
@@ -32,7 +32,7 @@ else {
 	
 $request= "SELECT GAME, nbpla FROM ".TABLE_MOD_FLOTTES_ADM." WHERE group_name='mod_flottes'";
 if($result = $db->sql_query($request)) {
-	while($ligne = mysql_fetch_row($result)) {	
+	while($ligne = $db->sql_fetch_row($result)) {	
 		$GA=$ligne[0];
 		$PLA=$ligne[1];
 	}
@@ -48,9 +48,9 @@ if ($GA=='UNIVERS')
 $gameselect='UNIVERS';
 $phpfonc="univers";
 $nplapage=$PLA;
-$lib_page=array("Planètes ","Planètes ","Planètes ","Planètes ","Planètes ","Planètes ","Planètes ","Planètes ","Planètes ");
+$lib_page=array("PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ","PlanÃ¨tes ");
 	
-// version antérieure à la 3.10
+// version antÃ©rieure Ã  la 3.10
 if ($dblang='NLG') {
 $LANG["ogame_Metal"] = "Titane";
 $LANG["ogame_Crystal"] = "Carbone";
@@ -59,16 +59,16 @@ $LANG["ogame_Energy"] = "Energie";
 $LANG["ogame_MetalMine"] = "Mine de titane";
 $LANG["ogame_CrystalMine"] = "Mine de carbone";
 $LANG["ogame_DeuteriumSynthesizer"] = "Extracteur de Tritium";
-$LANG["ogame_SolarPlant"] = "Centrale Géothermique";
-$LANG["ogame_FusionReactor"] = "Centrale à tritium";
-$LANG["ogame_RoboticsFactory"] = "Usine de droïdes";
-$LANG["ogame_NaniteFactory"] = "Usine d'Androïdes";
+$LANG["ogame_SolarPlant"] = "Centrale GÃ©othermique";
+$LANG["ogame_FusionReactor"] = "Centrale Ã  tritium";
+$LANG["ogame_RoboticsFactory"] = "Usine de droÃ¯des";
+$LANG["ogame_NaniteFactory"] = "Usine d'AndroÃ¯des";
 $LANG["ogame_Shipyard"] = "Usine d'armement";
 $LANG["ogame_MetalStorage"] = "Silo de Titane";
 $LANG["ogame_CrystalStorage"] = "Silo de Carbone";
 $LANG["ogame_DeuteriumTank"] = "Silo de tritium";
 $LANG["ogame_ResearchLab"] = "Centre Technique";
-$LANG["ogame_Converter"] = "Convertisseur moléculaire";
+$LANG["ogame_Converter"] = "Convertisseur molÃ©culaire";
 $LANG["ogame_Terraformer"] = "Terraformeur";
 $LANG["ogame_MissileSilo"] = "Hangar de missiles";
 $LANG["ogame_LunarBase"] = "Base lunaire";
@@ -83,7 +83,7 @@ $LANG["ogame_WeaponsTechnology"] = "Armement";
 $LANG["ogame_ShieldingTechnology"] = "Bouclier";
 $LANG["ogame_ArmourTechnology"] = "Blindage";
 $LANG["ogame_EnergyTechnology"] = "Thermodynamique";
-$LANG["ogame_HyperspaceTechnology"] = "Antimatière";
+$LANG["ogame_HyperspaceTechnology"] = "AntimatiÃ¨re";
 $LANG["ogame_CombustionDrive"] = "HyperDrive";
 $LANG["ogame_ImpulseDrive"] = "Impulsion";
 $LANG["ogame_HyperspaceDrive"] = "Warp";
@@ -97,33 +97,33 @@ $LANG["ogame_Expl"] = "Exploitation";
 $LANG["ogame_RocketLauncher"] = "BFG";
 $LANG["ogame_LightLaser"] = "Smart BFG";
 $LANG["ogame_HeavyLaser"] = "Plate-Forme Canon";
-$LANG["ogame_GaussCannon"] = "Déflecteurs";
+$LANG["ogame_GaussCannon"] = "DÃ©flecteurs";
 $LANG["ogame_IonCannon"] = "Plate-Forme Ionique";
 $LANG["ogame_PlasmaTuret"] = "Aereon Missile Defense";
 $LANG["ogame_SmallShield"] = "Champ de force";
 $LANG["ogame_LargeShield"] = "Holochamp";
-$LANG["ogame_AntiBallisticMissiles"] = "Contre Mesure Electromagnétique";
+$LANG["ogame_AntiBallisticMissiles"] = "Contre Mesure ElectromagnÃ©tique";
 $LANG["ogame_InterplanetaryMissiles"] = "Missile EMP";
-$LANG["ogame_TemperatureMax"] = "Température Max";
-$LANG["ogame_Temperature"] = "Température";
+$LANG["ogame_TemperatureMax"] = "TempÃ©rature Max";
+$LANG["ogame_Temperature"] = "TempÃ©rature";
 $LANG["ogame_Field"] = "Cases";
-$LANG["ogame_Coordinates"] = "Coordonnées";
+$LANG["ogame_Coordinates"] = "CoordonnÃ©es";
 $LANG["ogame_Empire"] = "Empire";
-$LANG["ogame_Building"] = "Bâtiments";
-$LANG["ogame_Defence"] = "Défenses";
+$LANG["ogame_Building"] = "BÃ¢timents";
+$LANG["ogame_Defence"] = "DÃ©fenses";
 $LANG["ogame_Research"] = "Recherches";
 $LANG["ogame_Technology"] = "Technologies";
 
 }	
 	// Flotte UNIVERS
 $mod_flottes_lang["planet_name"]= "Nom Planet";
-$mod_flottes_lang["coordinates"]= "Coordonnées";
+$mod_flottes_lang["coordinates"]= "CoordonnÃ©es";
 $mod_flottes_lang["planet_id"]= "ID Planet";
 $mod_flottes_lang["PT"] = "Navette PT";
 $mod_flottes_lang["GT"] = "Navette GT";
 $mod_flottes_lang["CLE"] = "Chasseur";
 $mod_flottes_lang["CLO"] = "Chasseur Lance";
-$mod_flottes_lang["CR"] = "Frégate d'assaut";
+$mod_flottes_lang["CR"] = "FrÃ©gate d'assaut";
 $mod_flottes_lang["VB"] = "Destroyer";
 $mod_flottes_lang["VC"] = "Colonisateur";
 $mod_flottes_lang["REC"] = "Collecteur";
@@ -135,7 +135,7 @@ $mod_flottes_lang["TRA"] = "Vaisseau Extracteur";
 $mod_flottes_lang["SAT"] = "Satellite solaire";
 
 $lib_flottes_lang["planet_name"]= "Nom Planet";
-$lib_flottes_lang["coordinates"]= "Coordonnées";
+$lib_flottes_lang["coordinates"]= "CoordonnÃ©es";
 $lib_flottes_lang["planet_id"]= "ID Planet";
 $lib_flottes_lang["PT"] = "PT-5";
 $lib_flottes_lang["GT"] = "GT-50";
@@ -152,13 +152,13 @@ $lib_flottes_lang["EDLM"] = "Hyperion";
 $lib_flottes_lang["TRA"] = "Extract";
 $lib_flottes_lang["SAT"] = "SAT";
 
-// Nom, Coût, Bouclier, Attaque, Fret, Vitesse, Conso
+// Nom, CoÃ»t, Bouclier, Attaque, Fret, Vitesse, Conso
 
 $vaisseaux_lang[1]=array ("Navette PT-5","4500","5","25","5000","5000","20");
 $vaisseaux_lang[2]=array ("Navette GT-50","45000","25","5","50000","8000","200");
 $vaisseaux_lang[3]=array ("Chasseur","4500","10","150","50","12500","20");
 $vaisseaux_lang[4]=array("Chasseur Lance","12000","25","300","100","10000","75");
-$vaisseaux_lang[5]=array ("Frégate d'assaut","35500","50","600","1000","15000","250");
+$vaisseaux_lang[5]=array ("FrÃ©gate d'assaut","35500","50","600","1000","15000","250");
 $vaisseaux_lang[6]=array ("Destroyer","60000","200","1250","1250","10000","350");
 $vaisseaux_lang[7]=array ("Colonisateur","40000","100","50","7500","2500","1000");
 $vaisseaux_lang[8]=array ("Collecteur","14000","10","1","20000","3000","300");
@@ -223,7 +223,7 @@ $vaisseaux_lang[14]=array ("Satellite solaire","3000","1","0","0","0","0");
 	$rri_lang="SCa";
 	$grav_lang="Graviton";	
 	
-	// Valeur défense Total
+	// Valeur dÃ©fense Total
 	$mic_rec = 7000;
 	$mip_rec= 28000;
 	$lm_rec=   3000;
@@ -264,25 +264,25 @@ else
 $gameselect='OGAME';
 $phpfonc="ogame";
 $nplapage=11;
-$lib_page=array("Planètes ","Lunes ","","","","","","","");
+$lib_page=array("PlanÃ¨tes ","Lunes ","","","","","","","");
 	
-// version antérieure à la 3.10
+// version antÃ©rieure Ã  la 3.10
 if ($dblang='NLG') {
-$LANG["ogame_Metal"] = "Métal";
+$LANG["ogame_Metal"] = "MÃ©tal";
 $LANG["ogame_Crystal"] = "Cristal";
-$LANG["ogame_Deuterium"] = "Deutérium";
+$LANG["ogame_Deuterium"] = "DeutÃ©rium";
 $LANG["ogame_Energy"] = "Energie";
-$LANG["ogame_MetalMine"] = "Mine de métal";
+$LANG["ogame_MetalMine"] = "Mine de mÃ©tal";
 $LANG["ogame_CrystalMine"] = "Mine de cristal";
-$LANG["ogame_DeuteriumSynthesizer"] = "Synthétiseur de deutérium";
-$LANG["ogame_SolarPlant"] = "Centrale électrique solaire";
-$LANG["ogame_FusionReactor"] = "Centrale électrique de fusion";
+$LANG["ogame_DeuteriumSynthesizer"] = "SynthÃ©tiseur de deutÃ©rium";
+$LANG["ogame_SolarPlant"] = "Centrale Ã©lectrique solaire";
+$LANG["ogame_FusionReactor"] = "Centrale Ã©lectrique de fusion";
 $LANG["ogame_RoboticsFactory"] = "Usine de robots";
 $LANG["ogame_NaniteFactory"] = "Usine de nanites";
 $LANG["ogame_Shipyard"] = "Chantier spatial";
-$LANG["ogame_MetalStorage"] = "Hangar de métal";
+$LANG["ogame_MetalStorage"] = "Hangar de mÃ©tal";
 $LANG["ogame_CrystalStorage"] = "Hangar de cristal";
-$LANG["ogame_DeuteriumTank"] = "Réservoir de deutérium";
+$LANG["ogame_DeuteriumTank"] = "RÃ©servoir de deutÃ©rium";
 $LANG["ogame_ResearchLab"] = "Laboratoire de recherche";
 $LANG["ogame_Terraformer"] = "Terraformeur";
 $LANG["ogame_MissileSilo"] = "Silo de missiles";
@@ -294,45 +294,45 @@ $LANG["ogame_ComputerTechnology"] = "Technologie ordinateur";
 $LANG["ogame_WeaponsTechnology"] = "Technologie armes";
 $LANG["ogame_ShieldingTechnology"] = "Technologie bouclier";
 $LANG["ogame_ArmourTechnology"] = "Technologie protection des vaisseaux";
-$LANG["ogame_EnergyTechnology"] = "Technologie énergie";
+$LANG["ogame_EnergyTechnology"] = "Technologie Ã©nergie";
 $LANG["ogame_HyperspaceTechnology"] = "Technologie hyperespace";
-$LANG["ogame_CombustionDrive"] = "Réacteur à combustion";
-$LANG["ogame_ImpulseDrive"] = "Réacteur à impulsion";
+$LANG["ogame_CombustionDrive"] = "RÃ©acteur Ã  combustion";
+$LANG["ogame_ImpulseDrive"] = "RÃ©acteur Ã  impulsion";
 $LANG["ogame_HyperspaceDrive"] = "Propulsion hyperespace";
 $LANG["ogame_LaserTechnology"] = "Technologie laser";
 $LANG["ogame_IonTechnology"] = "Technologie ions";
 $LANG["ogame_PlasmaTechnology"] = "Technologies plasma";
-$LANG["ogame_IntergalacticResearchNetwork"] = "Réseau de recherche intergalactique";
+$LANG["ogame_IntergalacticResearchNetwork"] = "RÃ©seau de recherche intergalactique";
 $LANG["ogame_AstrophysiqueTechnology"] = "Technologie astrophysiques";
 $LANG["ogame_GravitonTechnology"] = "Technologie graviton";
 $LANG["ogame_RocketLauncher"] = "Lanceur de missiles";
-$LANG["ogame_LightLaser"] = "Artillerie laser légère";
+$LANG["ogame_LightLaser"] = "Artillerie laser lÃ©gÃ¨re";
 $LANG["ogame_HeavyLaser"] = "Artillerie laser lourde";
 $LANG["ogame_GaussCannon"] = "Canon de Gauss";
-$LANG["ogame_IonCannon"] = "Artillerie à ions";
+$LANG["ogame_IonCannon"] = "Artillerie Ã  ions";
 $LANG["ogame_PlasmaTuret"] = "Lanceur de plasma";
 $LANG["ogame_SmallShield"] = "Petit bouclier";
 $LANG["ogame_LargeShield"] = "Grand bouclier";
 $LANG["ogame_AntiBallisticMissiles"] = "Missile interception";
-$LANG["ogame_InterplanetaryMissiles"] = "Missile interplanétaire";
-$LANG["ogame_TemperatureMax"] = "Température Max";
-$LANG["ogame_Temperature"] = "Température";
+$LANG["ogame_InterplanetaryMissiles"] = "Missile interplanÃ©taire";
+$LANG["ogame_TemperatureMax"] = "TempÃ©rature Max";
+$LANG["ogame_Temperature"] = "TempÃ©rature";
 $LANG["ogame_Field"] = "Cases";
-$LANG["ogame_Coordinates"] = "Coordonnées";
+$LANG["ogame_Coordinates"] = "CoordonnÃ©es";
 $LANG["ogame_Empire"] = "Empire";
-$LANG["ogame_Building"] = "Bâtiments";
-$LANG["ogame_Defence"] = "Défenses";
+$LANG["ogame_Building"] = "BÃ¢timents";
+$LANG["ogame_Defence"] = "DÃ©fenses";
 $LANG["ogame_Research"] = "Recherches";
 $LANG["ogame_Technology"] = "Technologies";
 }	
 
 //Flotte OGAME
 $mod_flottes_lang["planet_name"]= "Nom Planet";
-$mod_flottes_lang["coordinates"]= "Coordonnées";
+$mod_flottes_lang["coordinates"]= "CoordonnÃ©es";
 $mod_flottes_lang["planet_id"]= "ID Planet";
 $mod_flottes_lang["PT"] = "Petit transporteur";
 $mod_flottes_lang["GT"] = "Grand transporteur";
-$mod_flottes_lang["CLE"] = "Chasseur léger";
+$mod_flottes_lang["CLE"] = "Chasseur lÃ©ger";
 $mod_flottes_lang["CLO"] = "Chasseur lourd";
 $mod_flottes_lang["CR"] = "Croiseur";
 $mod_flottes_lang["VB"] = "Vaisseau de bataille";
@@ -341,12 +341,12 @@ $mod_flottes_lang["REC"] = "Recycleur";
 $mod_flottes_lang["SE"] = "Sonde espionnage";
 $mod_flottes_lang["BMD"] = "Bombardier";
 $mod_flottes_lang["DST"] = "Destructeur";
-$mod_flottes_lang["EDLM"] = "Étoile de la mort";
+$mod_flottes_lang["EDLM"] = "Ã‰toile de la mort";
 $mod_flottes_lang["TRA"] = "Traqueur";
 $mod_flottes_lang["SAT"] = "Satellite solaire";
 
 $lib_flottes_lang["planet_name"]= "Nom Planet";
-$lib_flottes_lang["coordinates"]= "Coordonnées";
+$lib_flottes_lang["coordinates"]= "CoordonnÃ©es";
 $lib_flottes_lang["planet_id"]= "ID Planet";
 $lib_flottes_lang["PT"] = "PT";
 $lib_flottes_lang["GT"] = "GT";
@@ -365,7 +365,7 @@ $lib_flottes_lang["SAT"] = "SAT";
 
 $vaisseaux_lang[1]=array ("Petit transporteur","4000","10","5","5000","5000(10000)","10(20)");
 $vaisseaux_lang[2]=array ("Grand transporteur","12000","25","5","25000","7500","50");
-$vaisseaux_lang[3]=array ("Chasseur léger","4000","10","50","50","12500","20");
+$vaisseaux_lang[3]=array ("Chasseur lÃ©ger","4000","10","50","50","12500","20");
 $vaisseaux_lang[4]=array("Chasseur lourd","10000","25","150","100","10000","75");
 $vaisseaux_lang[5]=array ("Croiseur","29000","50","400","800","15000","300");
 $vaisseaux_lang[6]=array ("Vaisseau de bataille","60000","200","1000","1500","10000","500");
@@ -374,7 +374,7 @@ $vaisseaux_lang[8]=array ("Recycleur","18000","10","1","20000","2000","300");
 $vaisseaux_lang[9]=array ("Sonde espionnage","1000","0.01","0.01","5","100000000","1");
 $vaisseaux_lang[10]=array ("Bombardier","90000","500","1000","500","4000(5000)","1000");
 $vaisseaux_lang[11]=array ("Destructeur","125000","500","2000","2000","5000","1000");
-$vaisseaux_lang[12]=array ("Étoile de la mort","10000000","50000","200000","1000000","100","1");
+$vaisseaux_lang[12]=array ("Ã‰toile de la mort","10000000","50000","200000","1000000","100","1");
 $vaisseaux_lang[13]=array ("Traqueur","85000","400","700","750","10000","250");
 $vaisseaux_lang[14]=array ("Satellite solaire","2500","1","1","0","0","0");
 
@@ -433,7 +433,7 @@ $vaisseaux_lang[14]=array ("Satellite solaire","2500","1","1","0","0","0");
 	$astro_lang="Astrophysique";
 	$grav_lang="Graviton";
 	
-	// Valeur défense total
+	// Valeur dÃ©fense total
 	$mic_rec = 10000;
 	$mip_rec= 25000; 
 	$lm_rec=  2000; 

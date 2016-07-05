@@ -14,12 +14,12 @@ if (!defined('IN_SPYOGAME')) {
 
 $query = "SELECT version FROM ".TABLE_MOD." WHERE action='flottes'";
 $result=$db->sql_query($query);
-list($vers)=mysql_fetch_array($result);
+list($vers)=$db->sql_fetch_row($result);
 echo '<div align="center" style="margin-top:20px;">';
 echo '<div class="footer">';
-echo 'Mod Flottes créé par <a href="mailto:conraddesdragons@free.fr">Conrad des Dragons</a><br>';
+echo 'Mod Flottes crÃ©Ã© par <a href="mailto:conraddesdragons@free.fr">Conrad des Dragons</a><br>';
 echo 'Repris par Zanfib et AirBat<br>';
-echo 'Mise à jour par Shad pour OGSpy 3.0.7<br>';
+echo 'Mise Ã  jour par Shad pour OGSpy 3.0.7<br>';
 echo 'Version '.$vers.' , &copy;2011';
 echo '</div>';
 echo '</div>';

@@ -19,4 +19,4 @@ TODO
 - refaire le design
 - modifier et ameliorer la detection des lunes
 - refaire l agencement du tableau des flottes
-- représentation graphique de la présence dans l univers
+- reprÃ©sentation graphique de la prÃ©sence dans l univers

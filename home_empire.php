@@ -72,7 +72,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 <tr>
-	<th><a>Coordonnées</a></th>
+	<th><a>CoordonnÃ©es</a></th>
 <?php
 for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	$il=$i;
@@ -102,7 +102,7 @@ for ($i=$start ;  $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 <tr>
-	<th><a>Température Min.</a></th>
+	<th><a>TempÃ©rature Min.</a></th>
 <?php
 for ($i=$start;  $i<=$start+$nplapage-1 ; $i++) {
 	$temperature_min = $user_building[$i]["temperature_min"];
@@ -113,7 +113,7 @@ for ($i=$start;  $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 <tr>
-	<th><a>Température Max.</a></th>
+	<th><a>TempÃ©rature Max.</a></th>
 <?php
 for ($i=$start;  $i<=$start+$nplapage-1 ; $i++) {
 	$temperature_max = $user_building[$i]["temperature_max"];
@@ -125,7 +125,7 @@ $test_og=0;
 if ($view == "1" || $gameselect=="OGAME") $test_og=1;
 
 	echo "</tr><tr>";
-	echo "<td class='c' colspan='". $nbcol2."'>Production théorique</td>";
+	echo "<td class='c' colspan='". $nbcol2."'>Production thÃ©orique</td>";
 	echo "</tr><tr>";
 	echo '<th><a>'.$LANG["ogame_Metal"].'</a></th>';
 
@@ -187,11 +187,11 @@ for ($i=$start ;  $i<=$start+$nplapage-1 ; $i++) {
 if ($test_og==0) {
 	} // fin de si $test_og==0
 else {
-	echo '</tr><tr> <td class="c" colspan="10">Bâtiments</td>';
+	echo '</tr><tr> <td class="c" colspan="10">BÃ¢timents</td>';
 }
 */	
 echo "</tr><tr>";
-echo "<td class='c' colspan='". $nbcol2."'>Bâtiments</td>";
+echo "<td class='c' colspan='". $nbcol2."'>BÃ¢timents</td>";
 echo "</tr><tr>";
 echo '<th><a>'.$LANG["ogame_MetalMine"].'</a></th>';
 

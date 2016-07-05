@@ -9,9 +9,9 @@
 ***************************************************************************/
 
 // def de qq variable
-if(!defined("TABLE_MOD_FLOTTES"))  // Controle de doublon (deja défini dans flotte_lang)
+if(!defined("TABLE_MOD_FLOTTES"))  // Controle de doublon (deja dÃ©fini dans flotte_lang)
 	define("TABLE_MOD_FLOTTES", $table_prefix."mod_flottes");
-if(!defined("TABLE_MOD_FLOTTES_ADM"))  // Controle de doublon (deja défini dans flotte_lang)
+if(!defined("TABLE_MOD_FLOTTES_ADM"))  // Controle de doublon (deja dÃ©fini dans flotte_lang)
 	define("TABLE_MOD_FLOTTES_ADM", $table_prefix."mod_flottes_admin");
 
 define("IN_MOD_FLOTTES", "ok");
@@ -23,7 +23,7 @@ require_once("mod/flottes/flottes_lang.php");
 $request= "SELECT color_fleet,color_fleet_old,color_fleet_user, color_fleet_point, color_fleet_alli,";
 $request .="color_bbc_1, color_bbc_2, color_bbc_3, color_bbc_4, color_bbc_5, GAME, nbpla FROM ".TABLE_MOD_FLOTTES_ADM." WHERE group_name='mod_flottes'";
 if($result = $db->sql_query($request)) {
-	while($ligne = mysql_fetch_row($result)) {
+	while($ligne = $db->sql_fetch_row($result)) {
 		$CF = $ligne[0]; 	
 		$CFO = $ligne[1]; 
 		$CFU = $ligne[2];
@@ -49,7 +49,7 @@ else {
 <script language="JavaScript">
 <?php
 global $user_building;
-$nb_planet = find_nb_planete_user();
+$nb_planet = find_nb_planete_user($user_data["user_id"]);
 $nb_moon = find_nb_moon_user();
 $name = $coordinates = $fields = $temperature = $satellite = "";
 for ($i=1 ; $i<=$nb_planet+$nb_moon ; $i++) {
@@ -202,7 +202,7 @@ function closeMessage() {
 </script>
 
 <?php
-$user_empire = user_get_empire();
+$user_empire = user_get_empire($user_data['user_id']);
 $user_building = $user_empire["building"];
 $user_defence = $user_empire["defence"];
 $user_technology = $user_empire["technology"];
@@ -227,10 +227,10 @@ $vaisseaux[14]=$vaisseaux_lang[14];
 // insertion des fonctions flotte
 //require_once("mod/flottes/function_flottes.php");
 
-// Groupe toujours autorisé a voir:
+// Groupe toujours autorisÃ© a voir:
 $request="SELECT group_id, group_name from ".TABLE_GROUP." WHERE group_name like 'flottes_%'";
 		$result = $db->sql_query($request);
-		if (mysql_num_rows($result)!=0)	{
+		if ($db->sql_fetch_row($result)!=0)	{
 			$request="SELECT MIN(".TABLE_GROUP.".group_id) from ".TABLE_GROUP." INNER JOIN ".TABLE_USER_GROUP." on ".TABLE_GROUP.".";
 			$request .="group_id=".TABLE_USER_GROUP.".group_id WHERE ".TABLE_GROUP.".group_name like 'flottes_%' AND ".TABLE_USER_GROUP.".";
 			$request .="user_id =".$user_data['user_id'];
@@ -252,7 +252,7 @@ if(list($group_id) = $db->sql_fetch_row($result)) {
 	}
 }
 
-// Recupère si j'autorise la difusion de mes données
+// RecupÃ¨re si j'autorise la difusion de mes donnÃ©es
 $request = "SELECT MAX(activate) as activate FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id'];
 $result = $db->sql_query($request);
 if(list($members_data) = $db->sql_fetch_row($result)) ;
@@ -262,7 +262,7 @@ else {
 	$members_data = '0';
 }
 
-//utilisateurs autorisés:
+//utilisateurs autorisÃ©s:
 $request = "SELECT users_permits FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id'];
 $result = $db->sql_query($request);
 list($users_permits) = $db->sql_fetch_row($result);
@@ -320,7 +320,7 @@ if(!isset($pub_add_ship) && !isset($pub_add) && isset($pub_del) && isset($pub_de
 	}
 }
 
-// Enregistre les données sur la flotte:
+// Enregistre les donnÃ©es sur la flotte:
 if(isset($pub_add_ship) && !isset($pub_add) && !isset($pub_del) && isset($pub_ship)) {
 	switch($pub_add_ship) {
 		case "Nouvelle insertion":

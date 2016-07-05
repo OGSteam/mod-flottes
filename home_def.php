@@ -52,7 +52,7 @@ for ($i=0 ; $i<=$affplanet[1] ; $i++) {
 }
 
 echo "</tr><tr>";
-echo "<td class='c' colspan='". $nbcol2."'>Vue d'ensemble de votre défense</td>";
+echo "<td class='c' colspan='". $nbcol2."'>Vue d'ensemble de votre dÃ©fense</td>";
 echo "</tr><tr>";
 echo "<th width='10%'><a>Nom</a></th>";
 
@@ -72,7 +72,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 <tr>
-	<th><a>Coordonnées</a></th>
+	<th><a>CoordonnÃ©es</a></th>
 <?php
 for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	$il=$i;
@@ -85,7 +85,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 }
 
 echo "</tr><tr>";
-echo "<td class='c' colspan='". $nbcol2."'>Défenses</td>";
+echo "<td class='c' colspan='". $nbcol2."'>DÃ©fenses</td>";
 echo "</tr>";
 ?>
 	<th><a><?php echo $LANG["ogame_RocketLauncher"]; ?></a></th>

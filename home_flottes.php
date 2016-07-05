@@ -72,7 +72,7 @@ for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 ?>
 </tr>
 <tr>
-	<th><a>Coordonnées</a></th>
+	<th><a>CoordonnÃ©es</a></th>
 <?php
 for ($i=$start ; $i<=$start+$nplapage-1 ; $i++) {
 	$il=$i;
@@ -89,7 +89,7 @@ echo "</tr>";
 
 /////////////////////////////////////////////////
 $requet = "SELECT * FROM ".TABLE_MOD_FLOTTES." WHERE user_id=".$user_data['user_id']; 
-$result = mysql_query($requet);
+$result = $db->sql_query($requet);
 $i=1;
 
 $id = array();
@@ -110,7 +110,7 @@ $edlm = array();
 $trac = array();
 $sat = array();
 
-	while($ligne = mysql_fetch_array($result)) {
+	while($ligne = $db->sql_fetch_row($result)) {
 		$i=$ligne['planet_id'];
 
 		$id[$i] = $ligne['planet_id'];

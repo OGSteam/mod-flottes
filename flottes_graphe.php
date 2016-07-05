@@ -6,8 +6,8 @@
 ***************************************************************************/
 
 /**************************************************************************
-*	Ce mod gère les permission d'acces grace aux groupe d'ogpy.
-*	Pour cela créé un groupe nomé "recherche_plus" et ajoutez y les utilisateur devants avoir acces a ce mod.
+*	Ce mod gÃ¨re les permission d'acces grace aux groupe d'ogpy.
+*	Pour cela crÃ©Ã© un groupe nomÃ© "recherche_plus" et ajoutez y les utilisateur devants avoir acces a ce mod.
 *	SI AUCUN GROUPE N'EST CREE, TOUS LES MEMBRES ONT ACCES.
 ***************************************************************************/
 
