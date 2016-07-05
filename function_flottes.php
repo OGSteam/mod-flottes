@@ -22,7 +22,7 @@ require_once("./mod/flottes/flottes_lang.php");
 
 // Fonctions
 function mod_flottes_get_ship($ship, $add=false) {
-	$user_empire = user_get_empire();
+	$user_empire = user_get_empire($user_data["user_id"]);
 	$user_building = $user_empire["building"];
 // FLOTTESTOEMPIRE ajout de $table_prefix dans global
 	global $user_data, $mod_flottes_lang, $db,$members_data,$table_prefix;

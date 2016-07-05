@@ -16,7 +16,7 @@ if (!defined('IN_MOD_FLOTTES')) {
 }
 
 require_once("./mod/flottes/flottes_lang.php");
-$user_empire = user_get_empire();
+$user_empire = user_get_empire($user_data["user_id"]);
 $user_building = $user_empire["building"];
 $user_defence = $user_empire["defence"];
 
