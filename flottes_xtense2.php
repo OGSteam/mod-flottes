@@ -19,11 +19,11 @@ require_once("./mod/flottes/function_flottes.php");
 global $db, $table_prefix;
 
 buttons_bar($pub_subaction);
-active_xtense2($pub_act);
+if(isset($pub_act)) active_xtense2($pub_act);
 
 // on definie les tables mod et xtense_callbacks
 define("TABLE_XTENSE_CALLBACKS", $table_prefix."xtense_callbacks");
-define("TABLE_MOD", $table_prefix."mod");
+//define("TABLE_MOD", $table_prefix."mod");
 ?>
 
 <table class="xtense2">
