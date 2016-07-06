@@ -21,8 +21,6 @@ if ($is_ok == true)
 	{
 		define("TABLE_MOD_FLOTTES", $table_prefix."mod_flottes");
 		define("TABLE_MOD_FLOTTES_ADM", $table_prefix."mod_flottes_admin");
-		define("TABLE_XTENSE_CALLBACKS", $table_prefix."xtense_callbacks");
-		define("TABLE_GROUP", $table_prefix."group");
 		define("FLOTTES_FOLDER","mod/flottes");
 
 		// Verification version
