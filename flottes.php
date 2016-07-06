@@ -26,10 +26,6 @@ switch($pub_subaction)
 		require_once("./mod/flottes/flottes_admin.php");
 	break;
 
-	case "insert" :
-		require_once("./mod/flottes/flottes_ajout.php");
-	break;
-
 	case "bbcode" :
 		require_once("./mod/flottes/flottes_bbcode.php");
  	break;
