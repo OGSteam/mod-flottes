@@ -99,7 +99,7 @@ echo "<td class='c' colspan='12'>Flottes</td>";
 /// couleur flotte
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CF."'>Couleur Flotte</font></b></th>";
+echo "<b><span color='" .$CF. "'>Couleur Flotte</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cf">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -112,7 +112,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur flotte old
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CFO."'>Couleur Flotte ancien (+ de 2 jours)</font></b></th>";
+echo "<b><span color='" .$CFO. "'>Couleur Flotte ancien (+ de 2 jours)</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cfo">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -125,7 +125,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur flotte joueur
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CFU."'>Couleur Flotte total joueur</font></b></th>";
+echo "<b><span color='" .$CFU. "'>Couleur Flotte total joueur</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cfu">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -138,7 +138,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur flotte points
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CFP."'>Couleur Flotte total point</font></b></th>";
+echo "<b><span color='" .$CFP. "'>Couleur Flotte total point</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cfp">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -151,7 +151,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur flotte alliance
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CFA."'>Couleur Flotte total alliance</font></b></th>";
+echo "<b><span color='" .$CFA. "'>Couleur Flotte total alliance</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cfa">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -164,7 +164,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur BBCode 1
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CB1."'>Couleur BBCode 1</font></b></th>";
+echo "<b><span color='" .$CB1. "'>Couleur BBCode 1</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cb1">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -177,7 +177,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur BBCode 2
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CB2."'>Couleur BBCode 2</font></b></th>";
+echo "<b><span color='" .$CB2. "'>Couleur BBCode 2</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cb2">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -190,7 +190,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur BBCode 3
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CB3."'>Couleur BBCode 3</font></b></th>";
+echo "<b><span color='" .$CB3. "'>Couleur BBCode 3</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cb3">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -203,7 +203,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur BBCode 4
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CB4."'>Couleur BBCode 4</font></b></th>";
+echo "<b><span color='" .$CB4. "'>Couleur BBCode 4</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cb4">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -216,7 +216,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// couleur BBCode 5
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='".$CB5."'>Couleur BBCode 5</font></b></th>";
+echo "<b><span color='" .$CB5. "'>Couleur BBCode 5</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="cb5">';
     	for ($i = 0; $i <$nb_color; $i++)
@@ -229,7 +229,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// Jeux
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='white'>Serveur pour le jeux</font></b></th>";
+echo "<b><span style=\"color: white; \">Serveur pour le jeux</span></b></th>";
 echo "<th colspan='6'>";
 echo    '<select name="ga">';
     	for ($i = 0; $i <2; $i++)
@@ -242,7 +242,7 @@ echo "<input type='submit' value='OK'/></th></tr>";
 /// NB planete par fiche
 echo "<tr>";
 echo "<th colspan='6'>";
-echo "<b><font color='white'>Nombre de planète par page (UNIVERS)</font></b></th>";
+echo "<b><span style=\"color: white; \">Nombre de planète par page (UNIVERS)</span></b></th>";
 echo "<th colspan='6'>";
 echo '<input type="text" name="pla" size="10" maxlength="20" value="'.$PLA.'">';
 
