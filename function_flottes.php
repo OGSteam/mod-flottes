@@ -207,18 +207,6 @@ function buttons_bar($subaction)
 
 	// ------------------------
 
-	//  BOUTON Insertion
-		if ($subaction == "insert"){
-			echo '<td class="menu_on" width="12.5%">Insertion de flotte</td>'."\n";
-		}
-		else 
-		{
-			echo '<td class="menu_off" width="12.5%" onclick="window.location = \'index.php?action=flottes&subaction=insert\';">'."\n";
-			echo 'Insertion de flotte'."\n";
-			echo '</td>'."\n";
-		}
-	// ------------------------
-
 	//  BOUTON Flottes
 		if (($subaction == "flottes")||(!isset($subaction))){
 			echo '<td class="menu_on" width="12.5%">Flottes</td>'."\n";
