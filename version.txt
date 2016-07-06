@@ -1,3 +1,4 @@
 flottes
-1.1.1
+1.1.2
 flottes,Flottes,flottes,flottes,flottes.php,1,0
+3.2.0
