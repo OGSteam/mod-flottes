@@ -11,15 +11,17 @@ if (!defined('IN_SPYOGAME')) {
 	die("Hacking attempt");
 }
 
-//vérification de la version pour compatibilité 
-	//$num_of_galaxies = 50;
-	//$num_of_systems = 100;
-if (!isset($num_of_galaxies) || !isset($num_of_systems)) { 
-	$num_of_galaxies = 9;
-	$num_of_systems = 499;
+if (!isset($num_of_galaxies) || !isset($num_of_systems)) {
+	$num_of_galaxies = $server_config['num_of_systems'] ;
+	$num_of_systems = $server_config['num_of_galaxies'];
 }
 
 if(!isset($pub_repartition)) //exit;
+
+/**
+ * setG
+ * @param string $value target URL
+ */
 
 function setG($value) {
 		global $div_nb, $galaxy_down, $galaxy_nb;
