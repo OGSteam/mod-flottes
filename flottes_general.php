@@ -374,7 +374,7 @@ if (!isset($pub_subaction2)) $pub_subaction2 = "flottes";
 
 if ($pub_subaction2 != "flottes") {
 	echo "\t\t\t"."<th class='c' width='150' onclick=\"window.location = 'index.php?action=flottes&subaction2=flottes&flottes_user_id=".$flottes_user_id."';\">";
-	echo "<a style='cursor:pointer'><font color='lime'>Flottes</font></a>";
+	echo "<a style='cursor:pointer'><span style=\"color: lime; \">Flottes</span></a>";
 	echo "</th>";
 }
 else {
@@ -385,7 +385,7 @@ else {
 
 if ($pub_subaction2 != "def" & $validemp) {
 	echo "\t\t\t"."<th class='c' width='150' onclick=\"window.location = 'index.php?action=flottes&subaction2=def&flottes_user_id=".$flottes_user_id."';\">";
-	echo "<a style='cursor:pointer'><font color='lime'>Défenses</font></a>";
+	echo "<a style='cursor:pointer'><span style=\"color: lime; \">Défenses</span></a>";
 	echo "</th>";
 }
 else {
@@ -396,7 +396,7 @@ else {
 
 if ($pub_subaction2 != "empire" & $validemp) {
 	echo "\t\t\t"."<th class='c' width='150' onclick=\"window.location = 'index.php?action=flottes&subaction2=empire&flottes_user_id=".$flottes_user_id."';\">";
-	echo "<a style='cursor:pointer'><font color='lime'>Empire</font></a>";
+	echo "<a style='cursor:pointer'><span style=\"color: lime; \">Empire</span></a>";
 	echo "</th>";
 }
 else {
@@ -418,7 +418,7 @@ else {
 */
 if ($pub_subaction2 != "stat" & $validemp) {
 	echo "\t\t\t"."<th class='c' width='150' onclick=\"window.location = 'index.php?action=flottes&subaction2=stat&flottes_user_id=".$flottes_user_id."';\">";
-	echo "<a style='cursor:pointer'><font color='lime'>Statistiques</font></a>";
+	echo "<a style='cursor:pointer'><span style=\"color: lime; \">Statistiques</span></a>";
 	echo "</th>";
 }
 else {
