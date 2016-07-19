@@ -176,7 +176,7 @@ for ($i=$start ;  $i<=$start+$nplapage-1 ; $i++) {
 	$production_CES = $production_CEF = $production_Sat = 0;
 	$production_CES = production($ces_lang, $CES);
 	$production_CEF = production($cef_lang, $CEF);
-	$production_Sat = production_sat($temperature_min, $temperature_max, $officier = 0);
+	$production_Sat = production_sat($temperature_max, $officier = 0);
 
 	$production = $production_CES + $production_CEF + $production_Sat;
 	if ($production == 0) $production = "&nbsp";
