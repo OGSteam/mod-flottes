@@ -325,7 +325,7 @@ function compte_planet($iduser,$nbpla,$game){
 
     // FLOTTESTOEMPIRE ajout de $table_prefix dans global
 
-	global $user_data, $mod_flottes_lang, $db,$members_data,$table_prefix;
+	global $user_data, $mod_flottes_lang, $db,$members_data,$table_prefix, $nb_planet;
 	
 	if (!isset($nbpla) || $nbpla==0) $nbpla=$nb_planet;
 

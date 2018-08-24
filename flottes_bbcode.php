@@ -112,8 +112,8 @@ if($result = $db->sql_query($request)) {
 ////// Nom du joueur In Game
 	$joueur=$user_data['user_stat_name'];
 //// heure locale
-	setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
-	$date=strftime("%A %d %B %Y.");
+	setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.UTF-8');
+	$date=utf8_encode (strftime("%A %d %B %Y."));
 
 /////// si le nom du joueur est pas null alors on va chercher ses statistiques flottes	
 	if ($joueur!=''){
@@ -122,7 +122,7 @@ if($result = $db->sql_query($request)) {
 		$dated=1;
 		$fp=0;
 		$fr=0;
-		$query = "SELECT max(datadate) FROM ".TABLE_RANK_PLAYER_FLEET." WHERE player='".$joueur."'";
+		$query = "SELECT max(datadate) FROM ".TABLE_RANK_PLAYER_MILITARY." WHERE player='".$joueur."'";
 		if ($result = $db->sql_query($query)){
 			if ( $val = $db->sql_fetch_row($result) ){
 				$dated=$val[0];
@@ -134,16 +134,15 @@ if($result = $db->sql_query($request)) {
 		else {
 			$out="erreur base date";
 		}
-		if ($dated==''){
-			$dated=$date+1;
-		}
-		$lastmodified = date('d/M/Y H:i',$dated);
+
+
+		$lastmodified = date('d/M/Y H:i', intval($dated));
 		
 
 //	echo "dated :".$dated." - ".$lastmodified;
 
 		if (isset($dated)){
-			$query  = "SELECT rank, points  FROM ".TABLE_RANK_PLAYER_FLEET." WHERE datadate=".$dated." AND player='".$joueur."'";
+			$query  = "SELECT rank, points  FROM ".TABLE_RANK_PLAYER_MILITARY." WHERE datadate=".$dated." AND player='".$joueur."'";
 			if ($result = $db->sql_query($query)){	
 				if ( $val = $db->sql_fetch_row($result) ){
 					$fr = $val[0];  // le classement flotte
@@ -182,7 +181,7 @@ if($result = $db->sql_query($request)) {
 		$conv  = $header."\n";
 		$conv .= "\n";
 		if ($fr!=0){
-		$conv .= '[i][color='.$CB1.']Classement par Vaisseaux: [/color][color='.$CB2.']'.$fr.' [/color][color='.$CB1.']ème au [/color][color='.$CB2.']'.$lastmodified.' [/color][color='.$CB1.']heure[/color][color='.$CB3.'] [/color][/i]'."\n";
+		$conv .= '[i][color='.$CB1.']Classement Militaire: [/color][color='.$CB2.']'.$fr.' [/color][color='.$CB1.']ème au [/color][color='.$CB2.']'.$lastmodified.' [/color][color='.$CB1.']heure[/color][color='.$CB3.'] [/color][/i]'."\n";
 		$conv .= "\n";}
 		else {
 		$conv .= '[i][color='.$CB1.']Joueur non classé ou classement par Vaisseaux inexistant[/color][color='.$CB3.'] [/color][/i]'."\n";
@@ -256,7 +255,7 @@ if($result = $db->sql_query($request)) {
 ?>
 
 					<div style="background-color : transparent; width: 49%; text-align : center; float: left;">
-					<input type="button" name="apercu" onClick="preview()" title="Aper&ccedil;u (ne fonctionne pas bien avec LDU)" value="Aper&ccedil;u"></div>
+					<input type="button" name="apercu" onClick="preview()" title="Aperçu (ne fonctionne pas bien avec LDU)" value="Aperçu"></div>
 					<td></td>
 
 				</th>

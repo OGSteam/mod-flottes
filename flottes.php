@@ -53,4 +53,3 @@ switch($pub_subaction)
 
 require_once("./mod/flottes/pied_flottes.php");
 require_once("./views/page_tail.php");
-?>

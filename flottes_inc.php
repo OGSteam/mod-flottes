@@ -50,7 +50,7 @@ else {
 <?php
 global $user_building;
 $nb_planet = find_nb_planete_user($user_data["user_id"]);
-$nb_moon = find_nb_moon_user();
+$nb_moon = find_nb_moon_user($user_data["user_id"]);
 $name = $coordinates = $fields = $temperature = $satellite = "";
 for ($i=1 ; $i<=$nb_planet+$nb_moon ; $i++) {
 	$name .= "'".$user_building[$i]["planet_name"]."', ";

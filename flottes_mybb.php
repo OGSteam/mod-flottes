@@ -169,8 +169,8 @@ if($result = $db->sql_query($request)) {
 ////// Nom du joueur In Game
     $joueur=$user_data['user_stat_name'];
 //// heure locale
-    setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
-    $date=strftime("%A %d %B %Y.");
+    setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.UTF-8');
+    $date= utf8_encode(strftime("%A %d %B %Y."));
 
 /////// si le nom du joueur est pas null alors on va chercher ses statistiques flottes    
     if ($joueur!=''){
@@ -179,7 +179,7 @@ if($result = $db->sql_query($request)) {
         $dated=1;
         $fp=0;
         $fr=0;
-        $query = "SELECT max(datadate) FROM ".TABLE_RANK_PLAYER_FLEET." WHERE player='".$joueur."'";
+        $query = "SELECT max(datadate) FROM ".TABLE_RANK_PLAYER_MILITARY." WHERE player='".$joueur."'";
         if ($result = $db->sql_query($query)){
             if ( $val = $db->sql_fetch_row($result) ){
                 $dated=$val[0];
@@ -191,16 +191,14 @@ if($result = $db->sql_query($request)) {
         else {
             $out="erreur base date";
         }
-        if ($dated==''){
-            $dated=$date+1;
-        }
+
         $lastmodified = date('d/M/Y H:i',$dated);
         
 
 //    echo "dated :".$dated." - ".$lastmodified;
 
         if (isset($dated)){
-            $query  = "SELECT rank, points  FROM ".TABLE_RANK_PLAYER_FLEET." WHERE datadate=".$dated." AND player='".$joueur."'";
+            $query  = "SELECT rank, points  FROM ".TABLE_RANK_PLAYER_MILITARY." WHERE datadate=".$dated." AND player='".$joueur."'";
             if ($result = $db->sql_query($query)){    
                 if ( $val = $db->sql_fetch_row($result) ){
                     $fr = $val[0];  // le classement flotte
