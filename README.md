@@ -1,29 +1,16 @@
 ## Module OGSpy Flottes
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Ce module permet de collecter les flottes via Xtense et de les partager avec les membres de son alliance.
 
-### What is this repository for? ###
+### Pré Requis ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Nécessite OGSpy 3.3.2 [Dépot OGSpy](https://github.com/ogsteam/ogspy)
+* L'extension navigateur Xtense
 
-### How do I get set up? ###
+### Configuration ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Configuration du lien Xtense à faire dans les options du module
 
-### Contribution guidelines ###
+### Pour nous contacter ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* [Forum OGSteam](https://forum.ogsteam.fr) : Vous y trouverez notre équipe de support ainsi que l'invitation vers notre salon Discord
