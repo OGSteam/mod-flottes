@@ -48,6 +48,8 @@ if ($is_ok == true)
 			" EDLM int(11) NOT NULL default '0',".
 			" TRA int(11) NOT NULL default '0',".
 			" SAT int(11) NOT NULL default '0',".
+			" FAU int(11) NOT NULL default '0',".
+			" ECL int(11) NOT NULL default '0',".
 			" primary key (user_id,planet_id))";
 		$db->sql_query($query);
 
