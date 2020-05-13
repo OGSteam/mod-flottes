@@ -75,7 +75,7 @@ function add_fleet($user_id, $planet_id, $planet_name, $coord, $time, $fleet) {
 
     global $db;
     
-    $request = "INSERT INTO ".TABLE_MOD_FLOTTES." (user_id, planet_id) VALUES (".$user_id.",  ".$planet_id." )" ;
+    $request = "INSERT INTO ".TABLE_MOD_FLOTTES." (`user_id`, `users_permits`, `planet_id`) VALUES (".$user_id.", '' , ".$planet_id." )" ;
     if(!($result = $db->sql_query($request))) {
         return FALSE;
     }
@@ -133,4 +133,4 @@ function flottes_get_callbacks() {
     );
 
 }
-?>
+

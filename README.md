@@ -1,29 +1,20 @@
-# README #
+## Module OGSpy Flottes
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Ce module permet de collecter les flottes via Xtense et de les partager avec les membres de son alliance.
 
-### What is this repository for? ###
+### Pré Requis ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Nécessite OGSpy 3.3.2 [Dépot OGSpy](https://github.com/ogsteam/ogspy)
+* L'extension navigateur Xtense
 
-### How do I get set up? ###
+### Configuration ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Configuration du lien Xtense à faire dans les options du module
 
-### Contribution guidelines ###
+### Pour nous contacter ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* [Forum OGSteam](https://forum.ogsteam.fr) : Vous y trouverez notre équipe de support ainsi que l'invitation vers notre salon Discord
 
-### Who do I talk to? ###
+### Index Codacy ###
 
-* Repo owner or admin
-* Other community or team contact
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc6e356107664a3e9c4af45568cbb123)](https://www.codacy.com/project/OGSteam/mod-flottes/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=OGSteam/mod-flottes&amp;utm_campaign=Badge_Grade_Dashboard)

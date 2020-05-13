@@ -111,7 +111,7 @@ buttons_bar($pub_subaction);
 			}
     	
     		for ($j = 1; $j < count($row); $j++) {
-        		echo ($row[$j] == NULL)  ? '0' : "\t"."<th><font color='".$color."'>".$row[$j]."</font></th>";
+        		echo (!isset($row[$j]))  ? '0' : "\t". "<th><span color='" .$color."'>".$row[$j]. "</span></th>";
     		}
         echo '</tr>';
 	}
@@ -143,7 +143,7 @@ buttons_bar($pub_subaction);
 			while ($row = $db->sql_fetch_row($result)) {
 	    		echo '<tr>';
     			for ($j = 0; $j < count($row); $j++) {
-       		 		echo ($row[$j] == NULL) ? '' : "\t"."<th><b><font color=".$CFU.">".$row[$j]."</font></b></th>";
+       		 		echo (!isset($row[$j])) ? '' : "\t". "<th><b><span color=" .$CFU.">".$row[$j]. "</span></b></th>";
     			}
         		echo '</tr>';
 			}
@@ -197,9 +197,9 @@ buttons_bar($pub_subaction);
 	    			echo '<tr>';
     				for ($j = 0; $j < count($row); $j++) {
     					if ($j<2) {
-    						echo ($row[$j] == NULL) ? '' : "\t"."<th><b><font color=".$CFP.">".$row[$j]."</font></b></th>";}
+    						echo (!isset($row[$j])) ? '' : "\t". "<th><b><span color=" .$CFP.">".$row[$j]. "</span></b></th>";}
     					else {
-							echo ($row[$j] == NULL) ? '' : "\t"."<th><b><font color=".$CFP.">".number_format($row[$j], 0, ',', ' ')."</font></b></th>";} 
+							echo (!isset($row[$j])) ? '' : "\t". "<th><b><span color=" .$CFP.">".number_format($row[$j], 0, ',', ' '). "</span></b></th>";}
 					}
     				echo '</tr>';
 				}
@@ -245,7 +245,7 @@ if (!empty($group_id)) {
 	    echo '<tr>';
 
     	for ($j = 0; $j < count($row); $j++) {
-        	echo ($row[$j] == NULL) ? '<i></i>' : "\t"."<th><b><font color=".$CFA.">".$row[$j]."</font></b></th>";
+        	echo (!isset($row[$j])) ? '<i></i>' : "\t". "<th><b><span color=" .$CFA.">".$row[$j]. "</span></b></th>";
     	}
         	echo '</tr>';
 	}
@@ -281,7 +281,7 @@ if (!empty($group_id)) {
 	    echo '<tr>';
 
     	for ($j = 0; $j < count($row); $j++) {
-        	echo ($row[$j] == NULL) ? '<i></i>' : "\t"."<th><b><font color=".$CFA.">".$row[$j]."</font></b></th>";
+        	echo (!isset($row[$j])) ? '<i></i>' : "\t". "<th><b><span color=" .$CFA.">".$row[$j]. "</span></b></th>";
     	}
         	echo '</tr>';
 	}

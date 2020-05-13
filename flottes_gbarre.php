@@ -23,41 +23,41 @@ if(!isset($pub_repartition)) //exit;
  * @param string $value target URL
  */
 
-function setG($value) {
-		global $div_nb, $galaxy_down, $galaxy_nb;
-		global $num_of_galaxies, $num_of_systems;
-		
-		echo $div_nb."-".$galaxy_down."-".$galaxy_nb."-".$num_of_galaxies."-". $num_of_systems;
-		
-		$space = "  ";
-		if($galaxy_nb==2 || $galaxy_nb==8 || $galaxy_nb==4 || $galaxy_nb>=9)
-			$space = " ";
-		if($galaxy_nb==1)
-			$space = "   ";
-		$legende = "";
-		for($i=0; $i<$div_nb-1; $i++) {
-			$s_up = (($num_of_systems+$num_of_systems%2)/$div_nb)*($i+1);
-			$s_down = ((($num_of_systems+$num_of_systems%2)/$div_nb)*$i)+1;
-			for($j=strlen($s_up);$j<3;$j++) $s_up.=" ";
-			for($j=strlen($s_down);$j<3;$j++) $s_down=" ".$s_down;
-			$legende .= $space.$s_down."-".$s_up;
-		}
-		$legende .= $space.(((($num_of_systems+$num_of_systems%2)/$div_nb)*$i)+1)."-".$num_of_systems;
-		switch($div_nb) {
-			case 1/2:
-				$legende = "G".($value*2+$galaxy_down)."\nG".($value*2+$galaxy_down+1);
-				break;
-			case 1:
-				$legende = "G".($value+$galaxy_down);
-				break;
-			default:
-				$l = strlen($legende)/2;
-				$legende.= "\n";
-				for($j=strlen("G".($value+$galaxy_down));$j<$l;$j++) $legende.=" ";
-				$legende .= "G".($value+$galaxy_down);
-		}
-		return $legende;
-	}
+/*function setG($value) {
+    global $div_nb, $galaxy_down, $galaxy_nb;
+    global $num_of_galaxies, $num_of_systems;
+
+    echo $div_nb . "-" . $galaxy_down . "-" . $galaxy_nb . "-" . $num_of_galaxies . "-" . $num_of_systems;
+
+    $space = "  ";
+    if ($galaxy_nb == 2 || $galaxy_nb == 8 || $galaxy_nb == 4 || $galaxy_nb >= 9)
+        $space = " ";
+    if ($galaxy_nb == 1)
+        $space = "   ";
+    $legende = "";
+    for ($i = 0; $i < $div_nb - 1; $i++) {
+        $s_up = (($num_of_systems + $num_of_systems % 2) / $div_nb) * ($i + 1);
+        $s_down = ((($num_of_systems + $num_of_systems % 2) / $div_nb) * $i) + 1;
+        for ($j = strlen($s_up); $j < 3; $j++) $s_up .= " ";
+        for ($j = strlen($s_down); $j < 3; $j++) $s_down = " " . $s_down;
+        $legende .= $space . $s_down . "-" . $s_up;
+    }
+    $legende .= $space . (((($num_of_systems + $num_of_systems % 2) / $div_nb) * $i) + 1) . "-" . $num_of_systems;
+    switch ($div_nb) {
+        case 1 / 2:
+            $legende = "G" . ($value * 2 + $galaxy_down) . "\nG" . ($value * 2 + $galaxy_down + 1);
+            break;
+        case 1:
+            $legende = "G" . ($value + $galaxy_down);
+            break;
+        default:
+            $l = strlen($legende) / 2;
+            $legende .= "\n";
+            for ($j = strlen("G" . ($value + $galaxy_down)); $j < $l; $j++) $legende .= " ";
+            $legende .= "G" . ($value + $galaxy_down);
+    }
+    return $legende;
+}*/
 
 $values = explode(":", $pub_repartition);
 if(isset($pub_div_nb) && is_numeric($pub_div_nb))
@@ -79,6 +79,8 @@ for($i=0; $i<sizeof($values); $i++) {
 	if($values[$i]=="" || $values[$i]==0) $values[$i]= NULL;
 }
 
+//TODO Librairie Obsolète
+/*
 require_once "library/artichow/BarPlot.class.php";
 
 $graph = new Graph(750, 250);
@@ -160,4 +162,4 @@ for($i=1; $i<=($div_nb<1?1:$div_nb); $i++) {
 
 $graph->add($group);
 $graph->draw();
-?>
+*/

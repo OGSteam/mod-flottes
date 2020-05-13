@@ -48,6 +48,8 @@ if ($is_ok == true)
 			" EDLM int(11) NOT NULL default '0',".
 			" TRA int(11) NOT NULL default '0',".
 			" SAT int(11) NOT NULL default '0',".
+			" FAU int(11) NOT NULL default '0',".
+			" ECL int(11) NOT NULL default '0',".
 			" primary key (user_id,planet_id))";
 		$db->sql_query($query);
 
@@ -99,10 +101,10 @@ if ($is_ok == true)
 				echo("<script> alert('La compatibilité du mod Flottes avec le mod Xtense2 est installée !') </script>");	
 			}
 		else	    //On averti qu'Xtense 2 n'est pas installé :
-			echo("<script> alert('Le mod Xtense 2 n\'est pas installé. \nLa compatibilité du mod Flottes ne sera donc pas installée !\nPensez à installer Xtense 2 c'est pratique ;)') </script>");
+			echo("<script> alert('Le mod Xtense 2 n\'est pas installé. \\n La compatibilité du mod Flottes ne sera donc pas installée ! Pensez à installer Xtense 2 c\'est pratique ;)') </script>");
 	}
 else
 	{
-		echo  "<script>alert('Désolé, un problème a eu lieu pendant l'installation, corrigez les problèmes survenue et réessayez.');</script>";
+		echo  "<script>alert('Désolé, un problème a eu lieu pendant l\'installation, corrigez les problèmes survenus et réessayez.');</script>";
 	}
 ?>

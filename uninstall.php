@@ -32,6 +32,7 @@ echo $mod_id;
 $request = "DELETE FROM ".TABLE_GROUP." WHERE group_name='mod_flottes'";
 $db->sql_query($request);
 
+
 // Suppression de la liaison entre Xtense v2 et Flottes
 
 // On regarde si la table xtense_callbacks existe :
@@ -48,4 +49,4 @@ if($result != 0){
 		echo("<script> alert('La compatibilité du mod Flottes avec le mod Xtense2 a été désinstallée !') </script>");
 }
 
-?>
+
