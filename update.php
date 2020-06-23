@@ -13,9 +13,23 @@ if (!defined('IN_SPYOGAME')) {
 }
 
 global $db,$table_prefix;
+define("TABLE_MOD_FLOTTES", $table_prefix."mod_flottes");
 
 $mod_folder = "flottes";
 $mod_name = "flottes";
+
+$query = "SELECT `version` FROM ".TABLE_MOD." WHERE action='flottes'";
+$req = $db->sql_query($query);
+$ver = $db->sql_fetch_row($req);
+
+if (version_compare($ver[0], '1.2.0', '<'))  {
+    $query = "ALTER TABLE " . TABLE_MOD_FLOTTES . " ADD `FAU` int(11) NOT NULL default '0' AFTER `SAT`";
+    $req = $db->sql_query($query);
+    $query = "ALTER TABLE " . TABLE_MOD_FLOTTES . " ADD `ECL` int(11) NOT NULL default '0' AFTER `FAU`";
+    $req = $db->sql_query($query);
+}
+
+
 update_mod($mod_folder, $mod_name);
 
 
@@ -35,10 +49,6 @@ if($db->sql_numrows($result) != 0){
 	// s'il n'y est pas, on l'ajoute
 	if($db->sql_numrows($result) == 0)
 		$db->sql_query("INSERT INTO ".TABLE_XTENSE_CALLBACKS." (mod_id, function, type, active) VALUES ('$mod_id', 'flottes_import_fleet', 'fleet', 1)");
-	echo("<script> alert('La compatibilité du mod Flottes avec le mod Xtense2 est installée !') </script>");
-}
-else {
-	echo("<script> alert('Le mod Xtense 2 n\'est pas installé. La compatibilité du mod Flottes ne sera donc pas installé ! Pensez à  installer Xtense 2 c\'est pratique ;)') </script>");
-}
+    }
 
 
