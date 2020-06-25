@@ -27,47 +27,48 @@ if ($is_ok == true)
 
 
 		$query = "CREATE TABLE ".TABLE_MOD_FLOTTES." (".
-			" user_id int(11) NOT NULL default '0',".
-			" activate enum('0','1') NOT NULL default '1',".
-			" users_permits text NOT NULL,".
-			" planet_id int(11) NOT NULL default '0',".
-			"planet_name varchar(20) not null default '',".
-			"coordinates varchar(8) not null default '', ".
-			"date int(11) NOT NULL default '0',".
-			" PT int(11) NOT NULL default '0',".
-			" GT int(11) NOT NULL default '0',".
-			" CLE int(11) NOT NULL default '0',".
-			" CLO int(11) NOT NULL default '0',".
-			" CR int(11) NOT NULL default '0',".
-			" VB int(11) NOT NULL default '0',".
-			" VC int(11) NOT NULL default '0',".
-			" REC int(11) NOT NULL default '0',".
-			" SE int(11) NOT NULL default '0',".
-			" BMD int(11) NOT NULL default '0',".
-			" DST int(11) NOT NULL default '0',".
-			" EDLM int(11) NOT NULL default '0',".
-			" TRA int(11) NOT NULL default '0',".
-			" SAT int(11) NOT NULL default '0',".
-			" FAU int(11) NOT NULL default '0',".
-			" ECL int(11) NOT NULL default '0',".
-			" primary key (user_id,planet_id))";
+			" `user_id` int(11) NOT NULL default '0',".
+			" `activate` enum('0','1') NOT NULL default '1',".
+			" `users_permits` text NOT NULL,".
+			" `planet_id` int(11) NOT NULL default '0',".
+			" `planet_name` varchar(20) not null default '',".
+			" `coordinates` varchar(8) not null default '', ".
+			" `date` int(11) NOT NULL default '0',".
+			" `PT` int(11) NOT NULL default '0',".
+			" `GT` int(11) NOT NULL default '0',".
+			" `CLE` int(11) NOT NULL default '0',".
+			" `CLO` int(11) NOT NULL default '0',".
+			" `CR`int(11) NOT NULL default '0',".
+			" `VB`int(11) NOT NULL default '0',".
+			" `VC`int(11) NOT NULL default '0',".
+			" `REC` int(11) NOT NULL default '0',".
+			" `SE`int(11) NOT NULL default '0',".
+			" `BMD` int(11) NOT NULL default '0',".
+			" `DST` int(11) NOT NULL default '0',".
+			" `EDLM` int(11) NOT NULL default '0',".
+			" `TRA` int(11) NOT NULL default '0',".
+			" `SAT` int(11) NOT NULL default '0',".
+			" `FOR` int(11) NOT NULL default '0',".
+			" `FAU` int(11) NOT NULL default '0',".
+			" `ECL` int(11) NOT NULL default '0',".
+			" primary key (`user_id`,`planet_id`))";
 		$db->sql_query($query);
 
 		$query = "CREATE TABLE ".TABLE_MOD_FLOTTES_ADM." (".
-			" group_name varchar(20) not null default '',".
-			" color_fleet varchar(8) not null default '',".
-			" color_fleet_old varchar(8) not null default '',".
-			" color_fleet_user varchar(8) not null default '',".
-			" color_fleet_point varchar(8) not null default '',".
-			"color_fleet_alli varchar(8) not null default '',".
-			"color_bbc_1 varchar(8) not null default '',".
-			"color_bbc_2 varchar(8) not null default '',".
-			"color_bbc_3 varchar(8) not null default '',".
-			"color_bbc_4 varchar(8) not null default '',".
-			"color_bbc_5 varchar(8) not null default '',".
-			"GAME varchar(8) not null default  'OGAME' '',".
-			"nbpla TINYINT NOT NULL DEFAULT '9' '',".
-			" primary key (group_name))";
+			" `group_name` varchar(20) not null default '',".
+			" `color_fleet` varchar(8) not null default '',".
+			" `color_fleet_old` varchar(8) not null default '',".
+			" `color_fleet_user` varchar(8) not null default '',".
+			" `color_fleet_point` varchar(8) not null default '',".
+			" `color_fleet_alli` varchar(8) not null default '',".
+			" `color_bbc_1` varchar(8) not null default '',".
+			" `color_bbc_2` varchar(8) not null default '',".
+			" `color_bbc_3` varchar(8) not null default '',".
+			" `color_bbc_4` varchar(8) not null default '',".
+			" `color_bbc_5` varchar(8) not null default '',".
+			" `GAME` varchar(8) not null default  'OGAME' '',".
+			" `nbpla` TINYINT NOT NULL DEFAULT '9' '',".
+			" primary key (`group_name`))";
 		$db->sql_query($query);
 
 		$request = "INSERT INTO ".TABLE_MOD_FLOTTES_ADM." (group_name,color_fleet,color_fleet_old,color_fleet_user, color_fleet_point, color_fleet_alli, ";
@@ -107,4 +108,4 @@ else
 	{
 		echo  "<script>alert('Désolé, un problème a eu lieu pendant l\'installation, corrigez les problèmes survenus et réessayez.');</script>";
 	}
-?>
+

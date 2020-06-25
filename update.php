@@ -29,6 +29,11 @@ if (version_compare($ver[0], '1.2.0', '<'))  {
     $req = $db->sql_query($query);
 }
 
+if (version_compare($ver[0], '1.2.1', '<'))  {
+    $query = "ALTER TABLE " . TABLE_MOD_FLOTTES . " ADD `FOR` int(11) NOT NULL default '0' AFTER `SAT`";
+    $req = $db->sql_query($query);
+}
+
 
 update_mod($mod_folder, $mod_name);
 
