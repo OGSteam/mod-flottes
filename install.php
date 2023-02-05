@@ -22,6 +22,8 @@ if ($is_ok == true)
 		define("TABLE_MOD_FLOTTES", $table_prefix."mod_flottes");
 		define("TABLE_MOD_FLOTTES_ADM", $table_prefix."mod_flottes_admin");
 		define("FLOTTES_FOLDER","mod/flottes");
+        define("TABLE_XTENSE_CALLBACKS", $table_prefix."xtense_callbacks");
+        define("TABLE_GROUP", $table_prefix."group");
 
 		// Verification version
 
@@ -77,7 +79,7 @@ if ($is_ok == true)
 		$result = $db->sql_query($request);
 		
 		// Groupe toujours autorisé a voir:
-		$request = "INSERT INTO ".TABLE_GROUP." (group_name)   VALUES ('mod_flottes')";
+		$request = "INSERT INTO ".TABLE_GROUP." (`group_name`)   VALUES ('mod_flottes')";
 		$db->sql_query($request);
 	
 		// Insertion de la liaison entre Xtense v2 et Flottes
