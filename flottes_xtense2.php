@@ -23,7 +23,6 @@ if(isset($pub_act)) active_xtense2($pub_act);
 
 // on definie les tables mod et xtense_callbacks
 define("TABLE_XTENSE_CALLBACKS", $table_prefix."xtense_callbacks");
-//define("TABLE_MOD", $table_prefix."mod");
 ?>
 
 <table class="xtense2">
@@ -33,10 +32,11 @@ define("TABLE_XTENSE_CALLBACKS", $table_prefix."xtense_callbacks");
 
 <?php
 // On regarde si la table xtense_callbacks existe
-$q_callback = 'show tables from '.$db->dbname.' like "'.TABLE_XTENSE_CALLBACKS.'"';
+$q_callback = "SELECT `id` FROM ".TABLE_MOD." WHERE `root` = 'xtense'";
 $r_callback = $db->sql_query($q_callback);
 $r_callback1 = $db->sql_numrows($r_callback);
-if($r_callback1 != 0){
+
+if ($r_callback1 > 0) {
     
     // Xtense2 installe
     echo '<tr height="30px" valign="middle">';
@@ -51,7 +51,7 @@ if($r_callback1 != 0){
     $mod_id = $r_modid1[0];
     
     //On regarde si le mod Flottes est inscrit dans xtense2
-    $q_xstatus = 'Select * From `'.TABLE_XTENSE_CALLBACKS.'` where mod_id = "'.$mod_id.'"';
+    $q_xstatus = 'SELECT * FROM `'.TABLE_XTENSE_CALLBACKS.'` where mod_id = "'.$mod_id.'"';
     $r_xstatus = $db->sql_query($q_xstatus);
     $r_xstatus1 = $db->sql_numrows($r_xstatus);
         
@@ -68,8 +68,7 @@ if($r_callback1 != 0){
         echo '<td class="xtense2_f" onclick="window.location = \'index.php?action=flottes&subaction=xtense2&act=desactive\';">';
         echo 'DESACTIVER Xtense2';
         echo '</td></tr></table>';
-    }
-    else {
+    }else {
         // xtense2 desactive
         echo '<tr height="30px" valign="middle">';
         echo '<td class="status">Status du mod Flottes dans Xtense2</td>';
@@ -83,8 +82,7 @@ if($r_callback1 != 0){
         echo 'ACTIVER Xtense2';
         echo '</td></tr></table>';
     }
-}
-else {
+}else {
     // on affiche comme quoi xtense2 n'est pas installe
     echo '<tr height="30px" valign="middle">';
     echo '<td class="status">Etat de Xtense2 (Callbacks)</td>';
@@ -95,6 +93,6 @@ else {
     echo '<tr height="30px" valign="middle">';
     echo '<td class="status">Status du mod Flottes dans Xtense2</td>';
     echo '<td class="status1">IMPOSSIBLE</td>';
-    echo '</tr></table>';    
+    echo '</tr></table>';
 }
-?>
+

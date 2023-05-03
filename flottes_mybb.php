@@ -349,7 +349,7 @@ if ($result = $db->sql_query($request)) {
         <table width="100%">
             <tbody>
                 <tr>
-                    <td align="left">Thanks to <a href="http://www.takanacity.com/" title="website of Takana's OGame Tools">Takana's Team</a> for this preview !</td>
+                    <td align="left">Thanks to <a href="https://www.takanacity.com/" title="website of Takana's OGame Tools">Takana's Team</a> for this preview !</td>
                     <td align="right"><input type="button" name="fermer" onClick="closeMessage()" value="Fermer"></td>
                 </tr>
             </tbody>

@@ -271,6 +271,3 @@ echo "<input type='submit' name='add_adm' value='Couleur par défaut'></th></tr>
 echo "</table>";
 
 echo "</form>";
-
-
-?>

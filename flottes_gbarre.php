@@ -1,29 +1,30 @@
 <?php
+
 /***************************************************************************
-*	filename	: flottes_gbarre.php
-*	desc.		:1.03
-*	Author		: 
-*	created		: 
-*	modified	: 
-***************************************************************************/
+ *	filename	: flottes_gbarre.php
+ *	desc.		:1.03
+ *	Author		: 
+ *	created		: 
+ *	modified	: 
+ ***************************************************************************/
 
 if (!defined('IN_SPYOGAME')) {
 	die("Hacking attempt");
 }
 
 if (!isset($num_of_galaxies) || !isset($num_of_systems)) {
-	$num_of_galaxies = $server_config['num_of_systems'] ;
+	$num_of_galaxies = $server_config['num_of_systems'];
 	$num_of_systems = $server_config['num_of_galaxies'];
 }
 
-if(!isset($pub_repartition)) //exit;
+if (!isset($pub_repartition)) //exit;
 
-/**
- * setG
- * @param string $value target URL
- */
+	/**
+	 * setG
+	 * @param string $value target URL
+	 */
 
-/*function setG($value) {
+	/*function setG($value) {
     global $div_nb, $galaxy_down, $galaxy_nb;
     global $num_of_galaxies, $num_of_systems;
 
@@ -59,24 +60,24 @@ if(!isset($pub_repartition)) //exit;
     return $legende;
 }*/
 
-$values = explode(":", $pub_repartition);
-if(isset($pub_div_nb) && is_numeric($pub_div_nb))
+	$values = explode(":", $pub_repartition);
+if (isset($pub_div_nb) && is_numeric($pub_div_nb))
 	$div_nb = $pub_div_nb;
-else 
+else
 	//exit;
 
-if($div_nb<0)
-	$div_nb = (-1)/$div_nb;
-	
-if(isset($pub_galaxy_down) && is_numeric($pub_galaxy_down))
+	if ($div_nb < 0)
+		$div_nb = (-1) / $div_nb;
+
+if (isset($pub_galaxy_down) && is_numeric($pub_galaxy_down))
 	$galaxy_down = $pub_galaxy_down;
-else 
+else
 	exit;
 
-$galaxy_nb = intval(sizeof($values)/$div_nb);
+$galaxy_nb = intval(sizeof($values) / $div_nb);
 
-for($i=0; $i<sizeof($values); $i++) {
-	if($values[$i]=="" || $values[$i]==0) $values[$i]= NULL;
+for ($i = 0; $i < sizeof($values); $i++) {
+	if ($values[$i] == "" || $values[$i] == 0) $values[$i] = NULL;
 }
 
 //TODO Librairie Obsolète

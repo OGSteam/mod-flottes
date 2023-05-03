@@ -23,4 +23,3 @@ echo 'Mise à jour par Shad pour OGSpy 3.0.7<br>';
 echo 'Version '.$vers.' , &copy;2011';
 echo '</div>';
 echo '</div>';
-?>

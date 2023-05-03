@@ -365,5 +365,3 @@ function mod_flottes_plugin_shipbyname($nplan,$ship) {
 /// en cas d'échec, la variable $mess prend la valeur de l'erreur SQL
 	return $out;
 }
-
-?>

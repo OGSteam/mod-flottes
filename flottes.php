@@ -3,7 +3,7 @@
 /***************************************************************************
  *    filename    : flottes.php
  *    desc.       : 1.0.3
- *    Link        : http://www.ogsteam.fr 
+ *    Link        : https://www.ogsteam.eu 
  *    Author      :  Conrad des Dragons
  *    created     : 
  *    modified    : AirBAT
