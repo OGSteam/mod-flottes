@@ -119,8 +119,7 @@ if ($result = $db->sql_query($request)) {
     ////// Nom du joueur In Game
     $joueur = $user_data['user_stat_name'];
     //// heure locale
-    setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.UTF-8');
-    $date = utf8_encode(strftime("%A %d %B %Y."));
+    $date = date('d M Y');
 
     /////// si le nom du joueur est pas null alors on va chercher ses statistiques flottes
     if ($joueur != '') {
@@ -283,7 +282,7 @@ if ($result = $db->sql_query($request)) {
         <table width="100%">
             <tbody>
                 <tr>
-                    <td align="left">Thanks to <a href="http://www.takanacity.com/" title="website of Takana's OGame Tools">Takana's Team</a> for this preview !</td>
+                    <td align="left">Thanks to <a href="https://www.takanacity.com/" title="website of Takana's OGame Tools">Takana's Team</a> for this preview !</td>
                     <td align="right"><input type="button" name="fermer" onClick="closeMessage()" value="Fermer"></td>
                 </tr>
             </tbody>

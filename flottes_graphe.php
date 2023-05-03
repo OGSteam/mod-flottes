@@ -92,7 +92,3 @@ if (function_exists('imagecreatetruecolor') !== FALSE) {
 	echo "<br /><span style='font-size:10px;'>Graphique indisponible car une option de php n'est pas disponible.</span>";
 //	echo "Debug1b<br>";
 }
-?>
-
-
-

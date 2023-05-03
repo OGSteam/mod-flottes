@@ -13,7 +13,7 @@ Ce module permet de collecter les flottes via Xtense et de les partager avec les
 
 ### Pour nous contacter ###
 
-* [Forum OGSteam](https://forum.ogsteam.fr) : Vous y trouverez notre équipe de support ainsi que l'invitation vers notre salon Discord
+* [Forum OGSteam](https://forum.ogsteam.eu) : Vous y trouverez notre équipe de support ainsi que l'invitation vers notre salon Discord
 
 ### Index Codacy ###
 
